@@ -2,7 +2,7 @@
 
 let mapa = null;
 
-let tamanhoMapa = null;8
+let tamanhoMapa = null;
 
 let posiçãoJogador = {
     linha: null,
