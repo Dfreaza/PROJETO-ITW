@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<!-- Grupo 41, numero 56963, nome: Tiago Ferreira, PL:23 -->
+<!-- Grupo 41, numero 56969, nome: Diogo Freaza, PL:23 -->
+<!-- Grupo 41, numero 56965, nome: Tomás Prazeres, PL:23 -->
+<html lang="en">
+
+<head>
+  <link href="css/style.css" type="text/css" rel="stylesheet">
+  <link href="css/About_us.css" type="text/css" rel="stylesheet">
+ 
+  <meta charset="utf-8">
+  
+  <title>About Us</title>
+  <meta name="viwport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+
+
+<!--................................................................................................................................-->
+     <!-- Top navigation -->
+<div class="topnav">
+
+  <!-- Centered link -->
+  <div class="topnav-centered">
+    <a href="pagina_selecao_de_mapas.html" class="active">PLAY!</a>
+  </div>
+
+  <!-- Left-aligned -->
+  
+  <a href="Pagina_login.html">Login</a>
+
+  <!-- Right-aligned -->
+  <div class="topnav-right">
+  
+    <a href="Pagina_principal.html">Home</a>
+  </div>
+
+</div>
+
+
+<!--..................................................................................................................................-->
+
+
+<!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+<div id="main">
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Info</span>  
+    
+    
+    
+    
+    
+    
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="Regras.html">Game Rules</a>
+    <a href="Pokedex.html">Pokémon</a>
+    <a href="types-counters.html">Types</a>
+    <a href="Mapas.html">Maps</a>
+    <a href="About_us.html">About us</a>
+  </div>
+  
+  <!-- Use any element to open the sidenav -->
+  <span onclick="openNav()"></span>
+  
+  
+<!-- codigo java retirado do w3school a melhorar na segunda entrega.........................................................-->
+  <script>
+    /* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
+  function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+
+
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+    document.body.style.backgroundColor = "white";
+}
+    </script>
+  
+      
+
+<!--......................................texto principal..............................................-->
+
+<div id="container">
+  <div id="About_Us">
+    <h1>Who we are?</h1>
+    <p>
+      This project was carried out by 3 students from the Science Faculty of Lisbon (Diogo Freaza, Tiago Ferreira, Tomás Prazeres)
+      in the ambit of creating a website with information about a game (with the pokemon theme). Observing the
+      site you can easily understand the rules of the game and the origin of the pokémon universe
+       by opening the game rules page. In addition to the tutoring, we also show the
+      pokémon present in the game, the maps and the game modes available.
+    </p>
+    <h2>How we made the web site</h2>
+    <p>
+      To be able to carry out this project we had to use html, css and javascript technologies learned
+      in class. For all the pages of our website we have made a header, which contains the top navigation bar.
+      We also created an info button that when clicked shows a menu with several buttons conected with several pages.
+      To make the info navigation bar animation it was necessary to use a little bit of javascript (it was the only time we used javascript).
+      At the bottom of the page is the footer with some useful links from our page. These three sections are always present
+      in html files. All other elements of the pages were created based on grids in css, grids these where
+      we put all the other elements like texts, images, tables, among others.
+    </p>
+  </div>
+    
+
+      <img src="imagens/javascript.jpg" alt="">
+  
+</div>
+
+
+
+
+
+
+<!-- ................................................................................................-->
+
+
+<div class="navbar">
+  <a href="Pagina_principal.html" class="active">Home</a>
+  <a href="Pagina_contacts.html">Contacts</a>
+  <a href="About_us.html">About us</a>
+  <a href="Pagina_helpLinks.html">Helpful links</a>
+</div>
+
+</div>
+</body>
+</html>

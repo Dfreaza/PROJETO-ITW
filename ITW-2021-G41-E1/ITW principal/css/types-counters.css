@@ -1,0 +1,59 @@
+#container{
+    width: 95%;
+    border: 0.2vw solid black; 
+    background-color: whitesmoke;
+    display: grid;
+    grid-template-areas:
+      'Counter1 Counter2 Counter3' 
+      'Counter4 Counter5 Counter6'
+      'Counter7 Counter8 Counter9';
+    text-align: center;  
+    margin-top: 1%;
+    padding-bottom: 6%;
+    padding-top: 3%;
+    row-gap: 3vw;
+    margin-left: 1%;
+    margin-bottom: 5%;
+}
+
+.l1{
+    grid-area: Counter1;
+}   
+
+.l2{
+    grid-area: Counter2;
+}
+
+.l3{
+    grid-area: Counter3;
+}
+
+.l4{
+    grid-area: Counter4;
+}   
+
+.l5{
+    grid-area: Counter5;
+}
+
+.l6{
+    grid-area: Counter6;
+}
+
+.l7{
+    grid-area: Counter7;
+}   
+
+.l8{
+    grid-area: Counter8;
+}
+
+.l9{
+    grid-area: Counter9;
+    
+}
+
+img{
+    width: 300px;
+    height: 150px;
+}

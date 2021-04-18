@@ -1,0 +1,282 @@
+
+body {
+  
+  transition: background-color .5s;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: url("background.jpg")
+}
+
+
+
+/*..........................................................................................................................................*/
+
+
+.topnav {
+  position: relative;
+  background-color: #333;
+  overflow: hidden;
+}
+
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Changes the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Adds a color to the play button */
+.topnav a.active {
+  background-color:  #fc765e;
+  color: white;
+}
+
+/* Centered section inside the top navigation */
+.topnav-centered a {
+  float: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Right-aligned section inside the top navigation */
+.topnav-right {
+  float: right;
+}
+
+/*navigation menu  (for mobile devices) */
+@media screen and (max-width: 600px) {
+  .topnav a, .topnav-right {
+    float: none;
+    display: block;
+  }
+
+  .topnav-centered a {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+  }
+}
+
+
+/*......................................................................................................................................*/
+
+
+/* Fixed sidenav, full height */
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #333;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+/* sidenav links and the dropdown button */
+.dropdown-btn {
+  padding: 15px;
+  padding-bottom: 15px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  display: block;
+  border:#333;
+  background: #333;
+  width:100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+.sidenav a {
+  padding: 15px;
+  padding-bottom: 15px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  display: block;
+  border: none;
+  background: none;
+  width:100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+} 
+
+
+
+
+
+
+/* The side navigation menu */
+.sidenav {
+  height: 100%;
+  width: 0; 
+  position: fixed; 
+  z-index: 1; 
+  top: 0; 
+  left: 0;
+  background-color: #111; 
+  overflow-x: hidden; 
+  padding-top: 60px; 
+  transition: 0.5s;
+}
+
+/*navigation menu links */
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+/*  close button */
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  left: 125px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* pushes the page content to the right when you open the side nav */
+#main {
+  transition: margin-left .5s;
+  padding: 20px;
+}
+
+/* On smaller screens*/
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+/*...................................................................................................................*/
+
+#container1{
+  
+  display: grid;
+  grid-template-columns: 0.5fr 0.5fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    'left center topright'
+    'left center botright';
+
+
+}
+
+
+.news {
+  grid-area: center;
+  padding: 2em;
+  background-color: #333;
+  margin-bottom: 54%;
+  color: whitesmoke;
+
+}
+
+
+.text {
+  grid-area: topright;
+ 
+  margin-top: 36.5%;
+  position: relative;
+  background: rgb(0,0,0);
+  background: rgba(0, 0,0, 0.5);
+  color: #f1f1f1;
+  padding: 1em;
+}
+
+img{
+  grid-area: topright;
+  height: 100%;
+  width: 100%;
+}
+
+
+.leader_board {
+  color: whitesmoke;
+  grid-area: left;
+  padding:2em;
+  background-color: rgb(41, 41, 41);
+  margin-bottom: 54%;
+}
+
+.comunity {
+  grid-area: botright;
+  padding: 1em;
+  background-color: rgb(233, 233, 233);
+  margin-bottom:27% ;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*............................................................................................................*/
+/* bottom navbar */
+.navbar {
+    background-color: #333;
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    width: 96.5%;
+  }
+  
+  
+  .navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  
+  .navbar a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  /* color of the active link */
+  .navbar a.active {
+    background-color: #fc765e;
+    color: white;
+  }
+
+/*..............................................................................................................*/
+
+li{
+  margin-bottom: 5%;
+}

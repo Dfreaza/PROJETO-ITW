@@ -1,0 +1,49 @@
+body{
+    font-size: 150%;
+}
+
+
+.container{
+    display: grid;
+    grid-template-areas: 
+         'texto imagem1'
+         'texto imagem2'
+         'texto imagem3';
+         
+}
+
+
+.Regras{
+    grid-area: texto;
+    background-color: whitesmoke;
+    padding-left: 2%;
+    padding-right: 2%;
+    margin-bottom: 2%;
+}
+
+
+
+
+#imagem1{
+    grid-area: imagem1;
+    margin-top: 20%;
+    width: 85%;
+    padding-left: 5%;
+}
+
+#imagem2{
+    grid-area: imagem2;
+    width: 85%;
+    padding-left: 5%;
+    margin-top: 5%;
+}
+
+#imagem3{
+    grid-area: imagem3;
+    width: 35%;
+    margin-left: 30%;
+}
+
+img{
+    height: auto;
+}

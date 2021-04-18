@@ -1,0 +1,37 @@
+#container{
+    margin: 3vw 0%;
+    border: 0.2vw solid black;
+    background-color: rgb(126, 126, 126);
+    position: absolute;
+    display: grid;
+    grid-template-areas:
+      'Mapaleft Mapacenter Maparight';
+
+    margin-top: 7%;
+    padding-left: 4%;
+    margin-right: 2%;
+}
+
+p{
+    width: 80%;
+}
+
+.Mapa1{
+    grid-area: Mapaleft;
+}   
+
+.Mapa2{
+    grid-area: Mapacenter;
+}
+
+.Mapa3{
+    grid-area: Maparight;
+}
+
+
+img{
+    border: black 2px solid;
+    width: auto;
+    height: 400px;
+}
+

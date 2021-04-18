@@ -1,0 +1,15 @@
+#container{
+    border: 3px solid black;
+    grid-template-areas:
+      'Mapaleft'
+      'Mapacenter'
+      'Maparight';
+      margin-bottom: 10%;
+      width: 100%;
+      position: relative;
+}
+
+img{
+    width: 95%;
+}
+

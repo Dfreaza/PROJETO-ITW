@@ -1,0 +1,35 @@
+#container7 {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      'es dt';
+  
+    width: 90%;
+    margin-right: 5%;
+    margin-left: 5%;
+    
+  
+  }
+  
+  .imagem {
+    width: 60%;
+    grid-area: dt;
+    padding: 1em;
+    background-color: whitesmoke;
+    
+  }
+  
+  .links {
+    color:whitesmoke;
+    padding: 2em;
+    grid-area: es;
+    background-color: #333;
+    margin-left: 30%;
+    
+  }
+
+.links a {
+    color:whitesmoke;
+    
+}

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<!-- Grupo 41, numero 56963, nome: Tiago Ferreira, PL:23 -->
+<!-- Grupo 41, numero 56969, nome: Diogo Freaza, PL:23 -->
+<!-- Grupo 41, numero 56965, nome: Tomás Prazeres, PL:23 -->
+<html lang="en">
+
+<head>
+  <link href="css/style.css" type="text/css" rel="stylesheet">
+ 
+  <meta charset="utf-8">
+  
+  <title>Home Page</title>
+  <meta name="viwport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+
+<!--................................................................................................................................-->
+    <!-- Top navigation -->
+<div class="topnav">
+
+    <!-- Centered link -->
+    <div class="topnav-centered">
+      <a href="pagina_selecao_de_mapas.html" class="active">PLAY!</a>
+    </div>
+  
+    <!-- Left-aligned -->
+    
+    <a href="Pagina_login.html">Login</a>
+  
+    <!-- Right-aligned -->
+    <div class="topnav-right">
+    
+      <a href="Pagina_principal.html">Home</a>
+    </div>
+  
+  </div>
+
+
+<!--..................................................................................................................................-->
+
+<!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+<div id="main">
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Info</span>  
+    
+    
+    
+    
+    
+    
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="Regras.html">Game Rules</a>
+    <a href="Pokedex.html">Pokémon</a>
+    <a href="types-counters.html">Types</a>
+    <a href="Mapas.html">Maps</a>
+    <a href="About_us.html">About us</a>
+  </div>
+  
+  <!-- Use any element to open the sidenav -->
+  <span onclick="openNav()"></span>
+  
+  
+<!-- codigo java retirado do w3school a melhorar na segunda entrega.................................................................................-->
+
+  <script>
+    /* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
+  function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+
+
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+    document.body.style.backgroundColor = "white";
+}
+    </script>
+  
+      
+
+
+
+
+
+
+
+
+
+
+
+<!--Home page container.........................................................................................................................................-->
+
+
+  <div id="container1">
+
+    <div class="news">
+      <h1>Latest Update!</h1>
+      <h2>Version 1.5, we added:</h2><br>
+      <ul>
+        <li>New Pokémon!</li>
+        <li>New game mode!</li>
+        <li>New in game mechanic</li>
+
+      </ul>
+        
+
+    </div>
+    
+<!--  imagem....................................................................................................... -->
+      
+      <img src="imagens/temporaria.jpg" alt="">
+      <div class="text">
+        <h1>Play Now!</h1>
+        <p>Make yourself into the Leader Board by beeing the fastest, and catch Pokémon!</p>
+      </div>
+<!-- leader board.......(exemplo).....a realizar na segunda entrega com devidos vonhecimentos de javascript e o jogo pronto............................................................................................ -->
+      <div class="leader_board">
+        <h1>Leader Board:</h1>
+        <table>
+          <tr>
+          <td>1º</td>
+          <td>Zezinho_gameplays</td>
+          <td>10000pts</td>
+          </tr>
+          <tr>
+          <td>2º</td>
+          <td>Zezoca_play</td>
+          <td>3000pts</td>
+          <tr>
+            <td>3º</td>
+            <td>Ze_HD</td>
+            <td>2000pts</td>
+          </tr>
+          <tr>
+            <td>4º</td>
+            <td>Toze_Marques</td>
+            <td>10000pts</td>
+          </tr>
+          <tr>
+            <td>5º</td>
+            <td>nome</td>
+            <td>pts</td>
+          </tr>
+          <tr>
+            <td>6º</td>
+            <td>nome</td>
+            <td>pts</td>
+          </tr>
+          <tr>
+            <td>7º</td>
+            <td>nome</td>
+            <td>pts</td>
+          </tr>
+          <tr>
+            <td>8º</td>
+            <td>nome</td>
+            <td>pts</td>
+          </tr>
+          <tr>
+            <td>9º</td>
+            <td>nome</td>
+            <td>pts</td>
+          </tr>
+          <tr>
+            <td>10º</td>
+            <td>nome</td>
+            <td>pts</td>
+          </tr>
+          <tr>
+            <td>11º</td>
+            <td>nome</td>
+            <td>pts</td>
+          </tr>
+          <tr>
+            <td>12º</td>
+            <td>nome</td>
+            <td>pts</td>
+          </tr>
+          <tr>
+            <td>13</td>
+            <td>nome</td>
+            <td>pts</td>
+          </tr>
+          <tr>
+            <td>14º</td>
+            <td>nome</td>
+            <td>pts</td>
+          </tr>
+          <tr>
+            <td>...</td>
+            <td>...</td>
+            <td>...</td>
+          </tr>
+          <tr>
+            <td>37º</td>
+            <td>You</td>
+            <td>10pts</td>
+          </tr>
+          </table>
+      </div>
+<!-- comunity forum.........(exemplo).....a realizar na segunda entrega com devidos vonhecimentos de javascript e o jogo pronto....................................................................................... -->
+      <div class="comunity">
+        <h1>Comunity Forum:</h1>
+        <p>Latest post:  Zezoca_play's said: "Wow this game is crap!"<br>
+        1hours ago: Zezinho_gameplays's said: "Awsome game!!"<br>
+        2hours ago: Ze_HD's said: "I am so bad at this :,) "<br>
+        2hours ago: Antonio_Mendes's said: "can anyone helps me here?"
+        </p>
+       
+      </div>
+      
+  </div>
+  
+  
+<!--....bottom nav..........................................................................................................-->
+
+      <div class="navbar">
+        <a href="Pagina_principal.html" class="active">Home</a>
+        <a href="Pagina_contacts.html">Contacts</a>
+        <a href="About_us.html">About us</a>
+        <a href="Pagina_helpLinks.html">Helpful links</a>
+      </div>
+</div>
+</body>
+</html>

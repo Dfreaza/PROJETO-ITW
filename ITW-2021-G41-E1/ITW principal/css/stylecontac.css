@@ -1,0 +1,38 @@
+#container6 {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      'esq dir';
+  
+   
+    margin-right: 5%;
+    width: 90%;
+    margin-left:5% ;
+   
+  
+  
+  }
+  
+  .imagem {
+    width: 60%;
+    grid-area: dir;
+    padding: 1em;
+    background-color: rgb(233, 233, 233);
+  }
+  
+  .mails {
+    color: whitesmoke;
+    
+    padding: 2em;
+    grid-area: esq;
+    background-color: #333;
+    margin-left: 30%;
+    
+  }
+
+
+.mails a{
+  color:rgb(77, 215, 233);
+
+}

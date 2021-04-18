@@ -1,0 +1,36 @@
+#container5 {
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    grid-template-rows: 25% 50% 25%;
+    grid-template-areas:
+      'topo topo topo'
+      'lef vid dtt'
+      'lef bot dtt';
+
+}
+
+.bbar {
+    grid-area: topo;
+  
+    background-color: #333;
+}
+
+.bbar2 {
+    grid-area: dtt;
+    background-color: #333;
+}
+
+
+
+.wbar2 {
+    grid-area: lef;
+    background-color: rgb(233, 233, 233);
+    font-size: 1.5em;
+    padding: 1em;
+} 
+
+
+.video {
+    grid-area: vid;
+}
+

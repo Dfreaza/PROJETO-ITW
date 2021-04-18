@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<!-- Grupo 41, numero 56963, nome: Tiago Ferreira, PL:23 -->
+<!-- Grupo 41, numero 56969, nome: Diogo Freaza, PL:23 -->
+<!-- Grupo 41, numero 56965, nome: Tomás Prazeres, PL:23 -->
+<html lang="en">
+
+<head>
+  <link href="css/style.css" type="text/css" rel="stylesheet">
+  <link href="css/Regras.css" type="text/css" rel="stylesheet">
+
+  <meta charset="utf-8">
+  
+  <title>Game Rules</title>
+  <meta name="viwport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+
+<!--.......................................Barra do header..............................................................................-->
+
+    <!-- Top navigation -->
+<div class="topnav">
+
+  <!-- Centered link -->
+  <div class="topnav-centered">
+    <a href="pagina_selecao_de_mapas.html" class="active">PLAY!</a>
+  </div>
+
+  <!-- Left-aligned -->
+  
+  <a href="Pagina_login.html">Login</a>
+
+  <!-- Right-aligned -->
+  <div class="topnav-right">
+  
+    <a href="Pagina_principal.html">Home</a>
+  </div>
+
+</div>
+
+
+
+<!--..................................................................................................................................-->
+
+
+<!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+<div id="main">
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Info</span>  
+    
+    
+    
+    
+    
+    
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="Regras.html">Game Rules</a>
+    <a href="Pokedex.html">Pokémon</a>
+    <a href="types-counters.html">Types</a>
+    <a href="Mapas.html">Maps</a>
+    <a href="About_us.html">About us</a>
+  </div>
+  
+  <!-- Use any element to open the sidenav -->
+  <span onclick="openNav()"></span>
+  
+  
+<!-- codigo java retirado do w3school a melhorar na segunda entrega.......................................................................................... -->
+  <script>
+    /* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
+  function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+
+
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+    document.body.style.backgroundColor = "white";
+}
+    </script>
+
+  
+      
+  <!--............................Texto principal...........................................-->
+<div class="container">
+    <div class="Regras">
+      <h2>Theme song</h2>
+      <audio controls>
+        <source
+        src = "theme_song.mp3"
+        type = "audio/mpeg">
+      </audio>
+      <h1>Learn how to play!!!</h1>
+      <h2>How to start playing</h2>
+      <p>
+        After browsing our beautiful website click on the "play!" to start the fun.
+        After clicking on play you will enter a page with some maps to choose from.
+        Then read the description of each game mode and select what you want to play.
+        Now the game is about to begin!
+      </p>
+      <h2>Game Modes</h2>
+      <p>The game will take place within one of our maps previously chosen by the player.
+        After choosing the maps, the player has the possibility to choose the mode of
+        match.<br>
+        Available game modes:<br>
+        Game mode 1...................<br>
+        Game mode 2-..................<br>
+        Game mode 3-..................</p>
+     
+      <h2>Game Rules</h2>
+      <p>Within the game the player will have a map with a size greater than or equal to 5x5,
+        where the player will walk. The player's goal is to cross the map and
+        reach the end as quickly as possible. Along the way there will be some obstacles
+        such as rocks, water, trees and some pokémon that will get in the way
+        of the player, and for the player to be able to procede he will have to battle and catch the pokémon and
+        later getting the it in his pokédex.
+        If by chance the player is able to make the course in a short time, he might be 
+        able to get a good spot in the leaderbord on the home page
+        of our website. So good luck on your journey trainer!
+      </p>
+
+      <h2>Orgins of the pokémon universe</h2>
+      <p>The concept of the Pokémon universe was inspired by Satoshi Tajiri's hobby of collecting
+        insects when he was a child. With the rapid evolution of large Japanese cities,
+        Satoshi Tajiri decided to create a game, originally called "Capsule Monsters"
+        that would give the same emotion to the new generations, allowing battles, exchanges and adventure, but
+        with monsters instead of insects. The final product launched to the Japanese public in 1996
+        was a game separated in two versions, called "Pocket Monsters Red" and "Pocket Monsters Green",
+        name that would be adapted later in its international launching for "Pokémon Red" and "Pokémon Blue".
+        Pokémon quickly became internationally popular, giving rise to other means
+        like an Anime, Movies, playing cards, and more; currently counting on 8 generations
+        essentially made up of 18 games with 2 new titles already promised for the end
+        this year and the beginning of the next, respectively, and with 898 species of creatures
+        to be discovered by the players!
+        <br>
+        <br>
+        Players are called Pokémon Trainers and two of the main objectives (in most Pokémon games) for Trainers are: to complete the
+        Pokédex, capturing all available Pokémon species, training your Pokémon team to compete against other trainers and, eventually,
+        become the champion of the game region.
+        In most Pokémon games, a Trainer who encounters a wild Pokémon is able to capture it through a spherical object called Poké Ball. If the
+        Pokémon does not escape from the Poké Ball, it is considered officially its Trainer, starting to obey the commands of its trainer.
+
+      </p>
+ 
+    </div>
+
+
+    <img id="imagem1" src="imagens/PocketMosters.png" alt="Primeiros jogos lançados no japão">
+    <img id="imagem2" src="imagens/Pokemon.png" alt="Primeiros jogos lançados ocidente">
+    <img id="imagem3" src="imagens/satoshi.png" alt="Criador do pokémon">
+    
+    
+
+  </div>
+
+
+
+
+<!--.......................................Barra do rodapé.................................................-->
+
+  <div class="navbar">
+    <a href="Pagina_principal.html" class="active">Home</a>
+    <a href="Pagina_contacts.html">Contacts</a>
+    <a href="About_us.html">About us</a>
+    <a href="Pagina_helpLinks.html">Helpful links</a>
+  </div>
+</div>
+</body>
+</html>
