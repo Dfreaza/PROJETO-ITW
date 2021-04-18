@@ -36,3 +36,23 @@
   color:rgb(77, 215, 233);
 
 }
+/* for mobile devices-------------------------------------------------------------*/
+@media screen and (max-width: 600px) {
+  #container6 {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 2fr 2fr;
+    grid-template-areas: 
+      'esq'
+      'dir';
+    
+    
+  }
+  
+  .mails{
+    margin-left: 0%;
+  }
+  .imagem{
+    width: auto;
+  }
+  }

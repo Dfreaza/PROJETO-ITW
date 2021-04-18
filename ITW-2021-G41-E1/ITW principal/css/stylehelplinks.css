@@ -33,3 +33,23 @@
     color:whitesmoke;
     
 }
+/* for mobile devices-------------------------------------------------------------*/
+@media screen and (max-width: 600px) {
+  #container7 {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 2fr 2fr;
+    grid-template-areas: 
+      'es'
+      'dt';
+    
+    
+  }
+  
+  .links{
+    margin-left: 0%;
+  }
+  .imagem{
+    width: auto;
+  }
+  }

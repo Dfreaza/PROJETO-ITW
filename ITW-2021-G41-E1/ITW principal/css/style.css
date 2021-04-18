@@ -280,3 +280,29 @@ img{
 li{
   margin-bottom: 5%;
 }
+
+/* for mobile devices-------------------------------------------------------------*/
+@media screen and (max-width: 600px) {
+  #container1 {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas: 
+      'topright'
+      'botright'
+      'left'
+      'center';
+    
+   
+  }
+  .leader_board{
+    margin-bottom: 5%;
+
+  }
+  .comunity{
+    margin-bottom: 5%;
+
+  }
+  
+ 
+  }
