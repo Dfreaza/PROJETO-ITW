@@ -1,0 +1,113 @@
+#container{
+    background-image: url(https://static.tumblr.com/206626c61895edee696227a096ffbc3d/czga49f/ox6okkxl0/tumblr_static_294ddgfi38boo0cwsoscwsgk8.png);
+    display: grid;
+    grid-template-areas: 'l1_00 l1_01 l1_02 l1_03 l1_04'
+                         'l2_10 l2_11 l2_12 l2_13 l2_14'
+                         'l3_20 l3_21 l3_22 l3_23 l3_24'
+                         'l4_30 l4_31 l4_32 l4_33 l4_34'
+                         'l5_40 l5_41 l5_42 l5_43 l5_44';
+}
+
+img{
+    width: 43%;
+}
+
+#l1_00{
+    grid-area: l1_00;
+}
+
+#l1_01{
+    grid-area: l1_01;
+}
+
+#l1_02{
+    grid-area: l1_02;
+}
+
+#l1_03{
+    grid-area: l1_03;
+}
+
+#l1_04{
+    grid-area: l1_04;
+}
+
+#l2_10{
+    grid-area: l2_10;
+}
+
+#l2_10{
+    grid-area: l2_11;
+}
+
+#l2_12{
+    grid-area: l2_12;
+}
+
+#l2_13{
+    grid-area: l2_13;
+}
+
+#l2_14{
+    grid-area: l2_14;
+}
+
+#l3_20{
+    grid-area: l3_20;
+}
+
+#l3_21{
+    grid-area: l3_21;
+}
+
+#l3_22{
+    grid-area: l3_22;
+}
+
+#l3_23{
+    grid-area: l3_23;
+}
+
+#l3_24{
+    grid-area: l3_24;
+}
+
+#l4_30{
+    grid-area: l4_30;
+}
+
+#l4_31{
+    grid-area: l4_31;
+}
+
+#l4_32{
+    grid-area: l4_32;
+}
+
+#l4_33{
+    grid-area: l4_33;
+}
+
+#l4_34{
+    grid-area: l4_34;
+}
+
+#l5_40{
+    grid-area: l5_40;
+}
+
+#l5_41{
+    grid-area: l5_41;
+}
+
+#l5_42{
+    grid-area: l5_42;
+}
+
+#l5_43{
+    grid-area: l5_43;
+}
+
+#l5_44{
+    grid-area: l5_44;
+}

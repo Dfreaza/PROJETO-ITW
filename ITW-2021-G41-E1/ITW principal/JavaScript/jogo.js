@@ -1,5 +1,12 @@
 "use strict";
 
+let tempoDoJogo = null;
+
+let tempo = null;
+
+function mostraTempo (){
+    
+}
 
 let mapa = null;
 
@@ -29,7 +36,7 @@ function mapa1 () {
     desenhaMapa();
 }
 
-function desenhaMapa (){
+function desenhaMapaConsola (){
     for (let i = 0; i < tamanhoMapa; i++){
         for (let j = 0; j < tamanhoMapa; j++){
             if (mapa[i][j] === ''){
@@ -61,6 +68,38 @@ function desenhaMapa (){
     console.log()
 }
 
+function desenhaMapa (){
+    for (let i = 0; i < tamanhoMapa; i++){
+        for (let j = 0; j < tamanhoMapa; j++){
+            if (mapa[i][j] === ''){
+                document.getElementById('i+j').innerHTML('deu');
+            }
+            else if (mapa[i][j] === 'Player1'){
+                document.getElementById('i+j').innerHTML('deu');
+            }
+            else if (mapa[i][j] === 'Tree'){
+                document.getElementById('i+j').innerHTML('deu');
+            }
+            else if (mapa[i][j] === 'Rock'){
+                document.getElementById('i+j').innerHTML('deu');
+            }
+            else if (mapa[i][j] === 'H20'){
+                document.getElementById('i+j').innerHTML('deu');
+            }
+            else if (mapa[i][j] === 'End'){
+                document.getElementById('i+j').innerHTML('deu');
+            }
+            else if (mapa[i][j] === 'PK1'){
+                document.getElementById('i+j').innerHTML('deu');
+            }
+            else if (mapa[i][j] === 'PK2'){
+                document.getElementById('i+j').innerHTML('deu');
+            }
+        }
+    }
+    console.log()
+}
+
 function luta(){
 
 }
@@ -76,14 +115,14 @@ um obstaculo ou nao houver mais casas dá um alerta.
 */
 function moveBaixo () {
     if (mapa[posiçãoJogador.linha + 1][posiçãoJogador.coluna] === ''){
-        mapa[posiçãoJogador.linha + 1][posiçãoJogador.coluna] === 'Player1';
-        mapa[posiçãoJogador.linha][posiçãoJogador.coluna] === '';
+        mapa[posiçãoJogador.linha + 1][posiçãoJogador.coluna] = 'Player1';
+        mapa[posiçãoJogador.linha][posiçãoJogador.coluna] = '';
         posiçãoJogador.linha++;
     }
     else if (mapa[posiçãoJogador.linha + 1][posiçãoJogador.coluna] === 'PK1' || mapa[posiçãoJogador.linha + 1][posiçãoJogador.coluna] === 'PK2'){
         luta();
     }
-    else if (mapa[posiçãoJogador.linha - 1][posiçãoJogador.coluna]){
+    else if (mapa[posiçãoJogador.linha - 1][posiçãoJogador.coluna] === 'End'){
         terminaJogo();
     }
     else if (mapa[posiçãoJogador.linha + 1][posiçãoJogador.coluna] === 'Tree'){
@@ -107,14 +146,14 @@ um obstaculo ou nao houver mais casas dá um alerta.
 */
 function moveCima () {
     if (mapa[posiçãoJogador.linha - 1][posiçãoJogador.coluna] === ''){
-        mapa[posiçãoJogador.linha - 1][posiçãoJogador.coluna] === 'Player1';
-        mapa[posiçãoJogador.linha][posiçãoJogador.coluna] === '';
+        mapa[posiçãoJogador.linha - 1][posiçãoJogador.coluna] = 'Player1';
+        mapa[posiçãoJogador.linha][posiçãoJogador.coluna] = '';
         posiçãoJogador.linha--;
     }
     else if (mapa[posiçãoJogador.linha - 1][posiçãoJogador.coluna] === 'PK1' || mapa[posiçãoJogador.linha + 1][posiçãoJogador.coluna] === 'PK2'){
         luta();
     }
-    else if (mapa[posiçãoJogador.linha - 1][posiçãoJogador.coluna]){
+    else if (mapa[posiçãoJogador.linha - 1][posiçãoJogador.coluna] === 'End'){
         terminaJogo();
     }
     else if (mapa[posiçãoJogador.linha - 1][posiçãoJogador.coluna] === 'Tree'){
@@ -139,14 +178,14 @@ um obstaculo ou nao houver mais casas dá um alerta.
 */
 function moveEsquerda () {
     if (mapa[posiçãoJogador.linha][posiçãoJogador.coluna - 1] === ''){
-        mapa[posiçãoJogador.linha][posiçãoJogador.coluna - 1] === 'Player1';
-        mapa[posiçãoJogador.linha][posiçãoJogador.coluna] === '';
+        mapa[posiçãoJogador.linha][posiçãoJogador.coluna - 1] = 'Player1';
+        mapa[posiçãoJogador.linha][posiçãoJogador.coluna] = '';
         posiçãoJogador.coluna--;
     }
     else if (mapa[posiçãoJogador.linha][posiçãoJogador.coluna - 1] === 'PK1' || mapa[posiçãoJogador.linha + 1][posiçãoJogador.coluna] === 'PK2'){
         luta();
     }
-    else if (mapa[posiçãoJogador.linha][posiçãoJogador.coluna - 1]){
+    else if (mapa[posiçãoJogador.linha][posiçãoJogador.coluna - 1] === 'End'){
         terminaJogo();
     }
     else if (mapa[posiçãoJogador.linha][posiçãoJogador.coluna - 1] === 'Tree'){
@@ -171,14 +210,14 @@ um obstaculo ou nao houver mais casas dá um alerta.
 */
 function moveDireita () {
     if (mapa[posiçãoJogador.linha][posiçãoJogador.coluna + 1] === ''){
-        mapa[posiçãoJogador.linha][posiçãoJogador.coluna + 1] === 'Player1';
-        mapa[posiçãoJogador.linha][posiçãoJogador.coluna] === '';
+        mapa[posiçãoJogador.linha][posiçãoJogador.coluna + 1] = 'Player1';
+        mapa[posiçãoJogador.linha][posiçãoJogador.coluna] = '';
         posiçãoJogador.coluna++;
     }
     else if (mapa[posiçãoJogador.linha][posiçãoJogador.coluna + 1] === 'PK1' || mapa[posiçãoJogador.linha + 1][posiçãoJogador.coluna] === 'PK2'){
         luta();
     }
-    else if (mapa[posiçãoJogador.linha][posiçãoJogador.coluna + 1]){
+    else if (mapa[posiçãoJogador.linha][posiçãoJogador.coluna + 1] === 'End'){
         terminaJogo();
     }
     else if (mapa[posiçãoJogador.linha][posiçãoJogador.coluna + 1] === 'Tree'){
