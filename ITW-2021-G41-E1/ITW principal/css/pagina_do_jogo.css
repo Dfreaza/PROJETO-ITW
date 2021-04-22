@@ -1,6 +1,7 @@
 #container{
     background-image: url(https://static.tumblr.com/206626c61895edee696227a096ffbc3d/czga49f/ox6okkxl0/tumblr_static_294ddgfi38boo0cwsoscwsgk8.png);
     display: grid;
+    width: 40%;
     grid-template-areas: 'l1_00 l1_01 l1_02 l1_03 l1_04'
                          'l2_10 l2_11 l2_12 l2_13 l2_14'
                          'l3_20 l3_21 l3_22 l3_23 l3_24'
@@ -8,9 +9,7 @@
                          'l5_40 l5_41 l5_42 l5_43 l5_44';
 }
 
-img{
-    width: 43%;
-}
+
 
 #l1_00{
     grid-area: l1_00;

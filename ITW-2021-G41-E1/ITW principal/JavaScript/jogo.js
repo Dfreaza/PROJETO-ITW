@@ -33,7 +33,7 @@ function mapa1 () {
     tamanhoMapa = 5
 
 
-    desenhaMapa();
+    desenhaMapaConsola();
 }
 
 function desenhaMapaConsola (){
@@ -68,11 +68,11 @@ function desenhaMapaConsola (){
     console.log()
 }
 
-function desenhaMapa (){
+function desenhaMapa (mapa){
     for (let i = 0; i < tamanhoMapa; i++){
         for (let j = 0; j < tamanhoMapa; j++){
             if (mapa[i][j] === ''){
-                document.getElementById('i+j').innerHTML('deu');
+                document.getElementById('l'+ (i+1) + '_' + i +'' +j).innerHTML('deu');
             }
             else if (mapa[i][j] === 'Player1'){
                 document.getElementById('i+j').innerHTML('deu');
@@ -137,7 +137,7 @@ function moveBaixo () {
     else{
         alert('Não pode andar mais para a direita!');
     }
-    desenhaMapa();
+    desenhaMapaConsola();
 }
 
 /*
@@ -168,7 +168,7 @@ function moveCima () {
     else{
         alert('Não pode andar mais para a Esquerda!');
     }
-    desenhaMapa();
+    desenhaMapaConsola();
 }
 
 
@@ -200,7 +200,7 @@ function moveEsquerda () {
     else{
         alert('Não pode andar mais para cima!');
     }
-    desenhaMapa();
+    desenhaMapaConsola();
 }
 
 
@@ -232,5 +232,5 @@ function moveDireita () {
     else{
         alert('Não pode andar mais para baixo!');
     }
-    desenhaMapa();
+    desenhaMapaConsola();
 }
