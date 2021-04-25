@@ -9,6 +9,8 @@
 
 <head>
   <link href="css/style.css" type="text/css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="css/login.js"></script>
   <link href="css/stylelogin.css" type="text/css" rel="stylesheet">
   <meta charset="utf-8">
   
@@ -88,38 +90,40 @@
 
     
    <!--...........................................................................................................  -->
-    <div class="container">
-      
-        <div>
-          <h2 style="text-align:left">Make yor login here and start the fun!</h2>
-          <div class="vl">
+   <form id="login-form" action="submit">
+        
             
-          </div>
+    <h2>  Start the fun!</h2>
+
+<div class="container1">
     
-          <div class="col">
-            <a href="#" class="fb btn">
-             Login with Facebook
-             </a>
-            <a href="#" class="twitter btn">
-             Login with Twitter
-            </a>
-            <a href="#" class="google btn"> Login with Google
-            </a>
-          </div>
+    <span>
+        <input id="register" type="radio" name="login_type" value="register" checked="checked">
+        <label for="register">Register</label>
+    </span>
+    <span>
+        <input id="login" type="radio" name="login_type" value="login">
+        <label for="login">Login</label>
+    </span>
     
-          <div class="col">
-            
-              <p>Or sign in manually:</p>
-            
-    
-            <input  placeholder="Username">
-            <input  placeholder="Password">
-            <input type="submit" value="Login">
-          </div>
-          
-        </div>
-      
+</div>
+<div class="container2">
+   
+    <div>
+        <label for="username">Username</label>
+        <input id="username" type="text" name="username" placeholder="name" required/>
     </div>
+    <div>
+        <label for="password">Password</label>
+        <input id="password" type="password" name="password" placeholder="password" required />
+    </div>
+
+</div>  
+<input type="submit" value="Submit" />
+
+<output name="result"></output>
+
+</form>
     
 <!-- .................................................................................................................. -->
     <div class="navbar">
