@@ -1,5 +1,5 @@
 #container{
-    background-image: url("imagens/temporaria.jpg");
+    background-image: url("water_tiles.jpg");
     display: grid;
     width: 40%;
     grid-template-areas: 'l1_00 l1_01 l1_02 l1_03 l1_04'
