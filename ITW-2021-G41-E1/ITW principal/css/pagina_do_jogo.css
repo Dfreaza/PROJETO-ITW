@@ -1,18 +1,21 @@
 #container{
-    background-image: url("water_tiles.jpg");
+    background-image: url("grass_tile.png");
     display: grid;
     width: 40%;
-    grid-template-areas: 'l1_00 l1_01 l1_02 l1_03 l1_04'
-                         'l2_10 l2_11 l2_12 l2_13 l2_14'
-                         'l3_20 l3_21 l3_22 l3_23 l3_24'
-                         'l4_30 l4_31 l4_32 l4_33 l4_34'
-                         'l5_40 l5_41 l5_42 l5_43 l5_44';
+    grid-template-areas: 'l1_00 l1_01 l1_02 l1_03 l1_04 l1_05 l1_06'
+                         'l2_10 l2_11 l2_12 l2_13 l2_14 l2_15 l2_16'
+                         'l3_20 l3_21 l3_22 l3_23 l3_24 l3_25 l3_26'
+                         'l4_30 l4_31 l4_32 l4_33 l4_34 l4_35 l4_36'
+                         'l5_40 l5_41 l5_42 l5_43 l5_44 l5_45 l5_46'
+                         'l6_50 l6_51 l6_52 l6_53 l6_54 l6_55 l6_56'
+                         'l7_60 l7_61 l7_62 l7_63 l7_64 l7_65 l7_66';
   margin:auto auto;
 }
 
 img{
     width: 95%;
-    height: 90%
+    height: 90%;
+    grid-area: auto;
 }
 
 
@@ -36,11 +39,19 @@ img{
     grid-area: l1_04;
 }
 
+#l1_05{
+    grid-area: l1_05;
+}
+
+#l1_06{
+    grid-area: l1_06;
+}
+
 #l2_10{
     grid-area: l2_10;
 }
 
-#l2_10{
+#l2_11{
     grid-area: l2_11;
 }
 
@@ -55,6 +66,15 @@ img{
 #l2_14{
     grid-area: l2_14;
 }
+
+#l2_15{
+    grid-area: l2_15;
+}
+
+#l2_16{
+    grid-area: l2_16;
+}
+
 
 #l3_20{
     grid-area: l3_20;
@@ -76,6 +96,15 @@ img{
     grid-area: l3_24;
 }
 
+#l3_25{
+    grid-area: l3_25;
+}
+
+#l2_36{
+    grid-area: l3_26;
+}
+
+
 #l4_30{
     grid-area: l4_30;
 }
@@ -96,6 +125,14 @@ img{
     grid-area: l4_34;
 }
 
+#l4_35{
+    grid-area: l4_35;
+}
+
+#l4_36{
+    grid-area: l4_36;
+}
+
 #l5_40{
     grid-area: l5_40;
 }
@@ -114,4 +151,68 @@ img{
 
 #l5_44{
     grid-area: l5_44;
+}
+
+#l5_45{
+    grid-area: l5_45;
+}
+
+#l5_46{
+    grid-area: l5_46;
+}
+
+#l6_50{
+    grid-area: l6_50;
+}
+
+#l6_51{
+    grid-area: l6_51;
+}
+
+#l6_52{
+    grid-area: l6_52;
+}
+
+#l6_53{
+    grid-area: l6_53;
+}
+
+#l6_54{
+    grid-area: l6_54;
+}
+
+#l6_55{
+    grid-area: l6_55;
+}
+
+#l6_56{
+    grid-area: l6_56;
+}
+
+#l7_60{
+    grid-area: l7_60;
+}
+
+#l7_61{
+    grid-area: l7_61;
+}
+
+#l7_62{
+    grid-area: l7_62;
+}
+
+#l7_63{
+    grid-area: l7_63;
+}
+
+#l7_64{
+    grid-area: l7_64;
+}
+
+#l7_65{
+    grid-area: l7_65;
+}
+
+#l7_66{
+    grid-area: l7_66;
 }

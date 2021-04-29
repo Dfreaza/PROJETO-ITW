@@ -22,21 +22,23 @@ window.addEventListener("load", mapa1);
 
 function mapa1 () {
     mapa = [
-        ['Player1','','PK1','Tree',''],
-        ['H20','H20','','',''],
-        ['H20','','','Rock',''],
-        ['Tree','','Rock','Rock','Tree'],
-        ['','','','PK2','End']
+        ['Tree','Tree','Tree','Tree','Tree','Tree','Tree'],
+        ['Tree','Player1','','PK1','Tree','','Tree'],
+        ['Tree','H20','H20','','','','Tree'],
+        ['Tree','H20','','','Rock','','Tree'],
+        ['Tree','Tree','','Rock','Rock','Tree','Tree'],
+        ['Tree','','','','PK2','','End'],
+        ['Tree','Tree','Tree','Tree','Tree','Tree','Tree']
     ]
 
-    posiçãoJogador.linha = 0;
-    posiçãoJogador.coluna = 0;
+    posiçãoJogador.linha = 1;
+    posiçãoJogador.coluna = 1;
 
-    tamanhoMapa = 5
+    tamanhoMapa = 7
 
 
     desenhaMapaConsola();
-    //desenhaMapa();
+    desenhaMapa();
 }
 
 function desenhaMapaConsola (){
@@ -71,32 +73,32 @@ function desenhaMapaConsola (){
     console.log()
 }
 
-function desenhaMapa (mapa){
+function desenhaMapa (){
     for (let i = 0; i < tamanhoMapa; i++){
         for (let j = 0; j < tamanhoMapa; j++){
             if (mapa[i][j] === ''){
-                document.getElementById('l'+ (i+1) + '_' + i +'' +j).innerHTML('deu');
+                $('#' + 'l'+ (i+1) + '_' + i +'' +j).prop("src","imagens/Pokemon_Center_Exterior.png");  
             }
             else if (mapa[i][j] === 'Player1'){
-                document.getElementById('l'+ (i+1) + '_' + i +'' +j).innerHTML('deu');
+                $('#' + 'l'+ (i+1) + '_' + i +'' +j).prop("src","imagens/Pokemons/charmander.jpg");
             }
             else if (mapa[i][j] === 'Tree'){
-                document.getElementById('l'+ (i+1) + '_' + i +'' +j).innerHTML('deu');
+                $('#' + 'l'+ (i+1) + '_' + i +'' +j).prop("src","imagens/tree_grass.png");
             }
             else if (mapa[i][j] === 'Rock'){
-                document.getElementById('l'+ (i+1) + '_' + i +'' +j).innerHTML('deu');
+                $('#' + 'l'+ (i+1) + '_' + i +'' +j).prop("src","imagens/stone_grass.png");
             }
             else if (mapa[i][j] === 'H20'){
-                document.getElementById('l'+ (i+1) + '_' + i +'' +j).innerHTML('deu');
+                $('#' + 'l'+ (i+1) + '_' + i +'' +j).prop("src","imagens/fonte.png");
             }
             else if (mapa[i][j] === 'End'){
-                document.getElementById('l'+ (i+1) + '_' + i +'' +j).innerHTML('deu');
+                $('#' + 'l'+ (i+1) + '_' + i +'' +j).prop("src","imagens/Pokemon_Center_Exterior.png");
             }
             else if (mapa[i][j] === 'PK1'){
-                document.getElementById('l'+ (i+1) + '_' + i +'' +j).innerHTML('deu');
+                $('#' + 'l'+ (i+1) + '_' + i +'' +j).prop("src","imagens/pokemons/pikachu.png");
             }
             else if (mapa[i][j] === 'PK2'){
-                document.getElementById('l'+ (i+1) + '_' + i +'' +j).innerHTML('deu');
+                $('#' + 'l'+ (i+1) + '_' + i +'' +j).prop("src","imagens/pokemons/pikachu.png");
             }
         }
     }
@@ -157,7 +159,7 @@ function capturaPokemon(){
 }
 
 function terminaJogo(){
-
+    alert('parabens acabou o jogo!!!')
 }
 
 
@@ -199,6 +201,9 @@ function moveBaixo () {
         posiçãoJogador.linha++;
     }
     else if (mapa[posiçãoJogador.linha + 1][posiçãoJogador.coluna] === 'End'){
+        mapa[posiçãoJogador.linha + 1][posiçãoJogador.coluna] = 'Player1';
+        mapa[posiçãoJogador.linha][posiçãoJogador.coluna] = '';
+        posiçãoJogador.linha++;
         terminaJogo();
     }
     else if (mapa[posiçãoJogador.linha + 1][posiçãoJogador.coluna] === 'Tree'){
@@ -214,7 +219,7 @@ function moveBaixo () {
         alert('Não pode andar mais para a direita!');
     }
     desenhaMapaConsola();
-    //desenhaMapa();
+    desenhaMapa();
 }
 
 /** 
@@ -234,6 +239,9 @@ function moveCima () {
         posiçãoJogador.linha--;
     }
     else if (mapa[posiçãoJogador.linha - 1][posiçãoJogador.coluna] === 'End'){
+        mapa[posiçãoJogador.linha - 1][posiçãoJogador.coluna] = 'Player1';
+        mapa[posiçãoJogador.linha][posiçãoJogador.coluna] = '';
+        posiçãoJogador.linha--;
         terminaJogo();
     }
     else if (mapa[posiçãoJogador.linha - 1][posiçãoJogador.coluna] === 'Tree'){
@@ -249,7 +257,7 @@ function moveCima () {
         alert('Não pode andar mais para Cima!');
     }
     desenhaMapaConsola();
-    //desenhaMapa();
+    desenhaMapa();
 }
 
 
@@ -270,6 +278,9 @@ function moveEsquerda () {
         posiçãoJogador.coluna--;
     }
     else if (mapa[posiçãoJogador.linha][posiçãoJogador.coluna - 1] === 'End'){
+        mapa[posiçãoJogador.linha][posiçãoJogador.coluna - 1] = 'Player1';
+        mapa[posiçãoJogador.linha][posiçãoJogador.coluna] = '';
+        posiçãoJogador.coluna--;
         terminaJogo();
     }
     else if (mapa[posiçãoJogador.linha][posiçãoJogador.coluna - 1] === 'Tree'){
@@ -285,7 +296,7 @@ function moveEsquerda () {
         alert('Não pode andar mais para a Esquerda!');
     }
     desenhaMapaConsola();
-    //desenhaMapa();
+    desenhaMapa();
 }
 
 
@@ -306,6 +317,9 @@ function moveDireita () {
         posiçãoJogador.coluna++;
     }
     else if (mapa[posiçãoJogador.linha][posiçãoJogador.coluna + 1] === 'End'){
+        mapa[posiçãoJogador.linha][posiçãoJogador.coluna + 1] = 'Player1';
+        mapa[posiçãoJogador.linha][posiçãoJogador.coluna] = '';
+        posiçãoJogador.coluna++;
         terminaJogo();
     }
     else if (mapa[posiçãoJogador.linha][posiçãoJogador.coluna + 1] === 'Tree'){
@@ -321,5 +335,5 @@ function moveDireita () {
         alert('Não pode andar mais para a Direita!');
     }
     desenhaMapaConsola();
-    //desenhaMapa();
+    desenhaMapa();
 }
