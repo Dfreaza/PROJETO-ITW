@@ -59,7 +59,7 @@ function imgLuta(){
 }
 
 function voltaMapa(){
-    $('#container').css('background-image', 'url("css/grass_3.png")');
+    $('#container').css('background-image', 'url("css/imagens_css/grass_3.png")');
     desenhaMapa();
 }
 
