@@ -1,12 +1,69 @@
 "use strict";
 
-let tempoDoJogo = null;
+//  ↓↓↓↓↓↓↓↓↓↓↓↓↓↓  codigo para fazer o tempo do jogo  ↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 
 
-let tempo = null;
 
-function mostraTempo (){
-    
+var hh = 0;
+var mm = 0;
+var ss = 0;
+
+var tempo = 1000;//Quantos milésimos valem 1 segundo?
+var cron;
+
+//Inicia o temporizador
+function start() {
+    cron = setInterval(() => { timer(); }, tempo);
 }
+
+
+//Para o temporizador 
+function stop() {
+    clearInterval(cron);
+    hh = 0;
+    mm = 0;
+    ss = 0;
+
+    document.getElementById('counter').innerText = '00:00:00';
+}
+
+//Faz a contagem do tempo e exibição
+function timer() {
+    ss++; //Incrementa +1 na variável ss
+
+    if (ss == 59) { //Verifica se deu 59 segundos
+        ss = 0; //Volta os segundos para 0
+        mm++; //Adiciona +1 na variável mm
+
+        if (mm == 59) { //Verifica se deu 59 minutos
+            mm = 0;//Volta os minutos para 0
+            hh++;//Adiciona +1 na variável hora
+        }
+    }
+
+    //Cria uma variável com o valor tratado HH:MM:SS
+    var format = (hh < 10 ? '0' + hh : hh) + ':' + (mm < 10 ? '0' + mm : mm) + ':' + (ss < 10 ? '0' + ss : ss);
+    
+    //Insere o valor tratado no elemento counter
+    document.getElementById('counter').innerText = format;
+
+    //Retorna o valor tratado
+    return format;
+}
+
+// ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ codigo para fazer o tempo do jogo ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+
+
+function imgLuta(){
+    $('img').prop("src", "imagens/nada.png"); 
+    $('#container').css('background-image', 'url("imagens/Luta/Bulba_cater.png")');   
+}
+
+function voltaMapa(){
+    $('#container').css('background-image', 'url("css/grass_3.png")');
+    desenhaMapa();
+}
+
+
 
 let mapa = null;
 
@@ -77,10 +134,10 @@ function desenhaMapa (){
     for (let i = 0; i < tamanhoMapa; i++){
         for (let j = 0; j < tamanhoMapa; j++){
             if (mapa[i][j] === ''){
-                $('#' + 'l'+ (i+1) + '_' + i +'' +j).prop("src","imagens/Pokemon_Center_Exterior.png");  
+                $('#' + 'l'+ (i+1) + '_' + i +'' +j).prop("src","imagens/nada.png");  
             }
             else if (mapa[i][j] === 'Player1'){
-                $('#' + 'l'+ (i+1) + '_' + i +'' +j).prop("src","imagens/Pokemons/charmander.jpg");
+                $('#' + 'l'+ (i+1) + '_' + i +'' +j).prop("src","imagens/Player/lucas_frente.png");
             }
             else if (mapa[i][j] === 'Tree'){
                 $('#' + 'l'+ (i+1) + '_' + i +'' +j).prop("src","imagens/tree_grass.png");
@@ -92,13 +149,13 @@ function desenhaMapa (){
                 $('#' + 'l'+ (i+1) + '_' + i +'' +j).prop("src","imagens/fonte.png");
             }
             else if (mapa[i][j] === 'End'){
-                $('#' + 'l'+ (i+1) + '_' + i +'' +j).prop("src","imagens/Pokemon_Center_Exterior.png");
+                $('#' + 'l'+ (i+1) + '_' + i +'' +j).prop("src","imagens/nada.png");
             }
             else if (mapa[i][j] === 'PK1'){
-                $('#' + 'l'+ (i+1) + '_' + i +'' +j).prop("src","imagens/pokemons/pikachu.png");
+                $('#' + 'l'+ (i+1) + '_' + i +'' +j).prop("src","imagens/nada.png");
             }
             else if (mapa[i][j] === 'PK2'){
-                $('#' + 'l'+ (i+1) + '_' + i +'' +j).prop("src","imagens/pokemons/pikachu.png");
+                $('#' + 'l'+ (i+1) + '_' + i +'' +j).prop("src","imagens/nada.png");
             }
         }
     }
@@ -109,7 +166,7 @@ function pedeValorAoJogador(nivelDoPokemon) {
     let n1
     let pedido
     do {
-      pedido = prompt(`Escreva um número inteiro entre 1 e ${nivelDoPokemon}`)
+      pedido = prompt(`Para atacar adivinhe um número entre 1 e ${nivelDoPokemon}`)
       n1 = parseInt(pedido);
       if(n1 > nivelDoPokemon || n1 < 1){
         alert(`O valor ${n1} está fora do intervalo de validade.`);
@@ -134,27 +191,41 @@ function luta(){
     do{
         valorDoPlayer = pedeValorAoJogador(levelPk);
         if (valorDoPlayer != numeroAleatorio){
-            alert('Não é o número certo continue tentando');
+            alert('O ataque falhou continue tentando');
         }
     } while (valorDoPlayer != numeroAleatorio){
         if (valorDoPlayer == numeroAleatorio){
-            alert('Certo');
-            capturaPokemon();
+            alert('O ataque acertou, derrotou o pokemon');
+            querCapturar();
         }
     
     }
 
 }
 
+function querCapturar(){
+    let msg = prompt('quer capturar este pokemon ? (Escreva s caso queira e escreva n caso não queira.)');
+
+    if (msg === 's'){
+        capturaPokemon();
+    }
+    else{
+        voltaMapa();  
+    }   
+}
+
+
 function capturaPokemon(){
     let numeroAleatorio = Math.floor(Math.random() * 10) + 1
     console.log(numeroAleatorio);
 
     if (numeroAleatorio > 5){
-        alert('O numero aleatório foi maior do que 5 e por isso capturou o pokemon Parabens!!!')
+        alert('capturou o pokemon Parabens!!!')
+        voltaMapa();
     }
     else if (numeroAleatorio < 6){
-        alert('O numero aleatório foi menor do que 5 por isso nao capturou o pokemon mais sorte na próxima vez.')
+        alert('Não capturou o pokemon mais sorte na próxima vez.')
+        voltaMapa();
     }
 }
 
@@ -193,9 +264,13 @@ function moveBaixo () {
         mapa[posiçãoJogador.linha + 1][posiçãoJogador.coluna] = 'Player1';
         mapa[posiçãoJogador.linha][posiçãoJogador.coluna] = '';
         posiçãoJogador.linha++;
+        desenhaMapa();
     }
     else if (mapa[posiçãoJogador.linha + 1][posiçãoJogador.coluna] === 'PK1' || mapa[posiçãoJogador.linha + 1][posiçãoJogador.coluna] === 'PK2'){
-        luta();
+        imgLuta();
+        setTimeout(function(){    // serve para dar tempo de alterar o background da luta 
+            luta();
+        }, 100);
         mapa[posiçãoJogador.linha + 1][posiçãoJogador.coluna] = 'Player1';
         mapa[posiçãoJogador.linha][posiçãoJogador.coluna] = '';
         posiçãoJogador.linha++;
@@ -204,22 +279,11 @@ function moveBaixo () {
         mapa[posiçãoJogador.linha + 1][posiçãoJogador.coluna] = 'Player1';
         mapa[posiçãoJogador.linha][posiçãoJogador.coluna] = '';
         posiçãoJogador.linha++;
+        desenhaMapa();
         terminaJogo();
+        stop();
     }
-    else if (mapa[posiçãoJogador.linha + 1][posiçãoJogador.coluna] === 'Tree'){
-        alert('Não pode passar pelas árvores!');
-    }
-    else if (mapa[posiçãoJogador.linha + 1][posiçãoJogador.coluna] === 'H20'){
-        alert('Não pode passar pela água!');
-    }
-    else if (mapa[posiçãoJogador.linha + 1][posiçãoJogador.coluna] === 'Rock'){
-        alert('Não pode passar pelas pedras!');
-    }
-    else{
-        alert('Não pode andar mais para a direita!');
-    }
-    desenhaMapaConsola();
-    desenhaMapa();
+
 }
 
 /** 
@@ -231,9 +295,13 @@ function moveCima () {
         mapa[posiçãoJogador.linha - 1][posiçãoJogador.coluna] = 'Player1';
         mapa[posiçãoJogador.linha][posiçãoJogador.coluna] = '';
         posiçãoJogador.linha--;
+        desenhaMapa();
     }
     else if (mapa[posiçãoJogador.linha - 1][posiçãoJogador.coluna] === 'PK1' || mapa[posiçãoJogador.linha - 1][posiçãoJogador.coluna] === 'PK2'){
-        luta();
+        imgLuta();
+        setTimeout(function(){      // serve para dar tempo de alterar o background da luta
+            luta();
+        }, 100);
         mapa[posiçãoJogador.linha - 1][posiçãoJogador.coluna] = 'Player1';
         mapa[posiçãoJogador.linha][posiçãoJogador.coluna] = '';
         posiçãoJogador.linha--;
@@ -242,22 +310,11 @@ function moveCima () {
         mapa[posiçãoJogador.linha - 1][posiçãoJogador.coluna] = 'Player1';
         mapa[posiçãoJogador.linha][posiçãoJogador.coluna] = '';
         posiçãoJogador.linha--;
+        desenhaMapa();
         terminaJogo();
+        stop();
     }
-    else if (mapa[posiçãoJogador.linha - 1][posiçãoJogador.coluna] === 'Tree'){
-        alert('Não pode passar pelas árvores!');
-    }
-    else if (mapa[posiçãoJogador.linha - 1][posiçãoJogador.coluna] === 'H20'){
-        alert('Não pode passar pela água!');
-    }
-    else if (mapa[posiçãoJogador.linha - 1][posiçãoJogador.coluna] === 'Rock'){
-        alert('Não pode passar pelas pedras!');
-    }
-    else{
-        alert('Não pode andar mais para Cima!');
-    }
-    desenhaMapaConsola();
-    desenhaMapa();
+
 }
 
 
@@ -270,9 +327,13 @@ function moveEsquerda () {
         mapa[posiçãoJogador.linha][posiçãoJogador.coluna - 1] = 'Player1';
         mapa[posiçãoJogador.linha][posiçãoJogador.coluna] = '';
         posiçãoJogador.coluna--;
+        desenhaMapa();
     }
     else if (mapa[posiçãoJogador.linha][posiçãoJogador.coluna - 1] === 'PK1' || mapa[posiçãoJogador.linha][posiçãoJogador.coluna - 1] === 'PK2'){
-        luta();
+        imgLuta();
+        setTimeout(function(){         // serve para dar tempo de alterar o background da luta   
+            luta();
+        }, 100);
         mapa[posiçãoJogador.linha][posiçãoJogador.coluna - 1] = 'Player1';
         mapa[posiçãoJogador.linha][posiçãoJogador.coluna] = '';
         posiçãoJogador.coluna--;
@@ -281,22 +342,10 @@ function moveEsquerda () {
         mapa[posiçãoJogador.linha][posiçãoJogador.coluna - 1] = 'Player1';
         mapa[posiçãoJogador.linha][posiçãoJogador.coluna] = '';
         posiçãoJogador.coluna--;
+        desenhaMapa();
         terminaJogo();
+        stop();
     }
-    else if (mapa[posiçãoJogador.linha][posiçãoJogador.coluna - 1] === 'Tree'){
-        alert('Não pode passar pelas árvores!');
-    }
-    else if (mapa[posiçãoJogador.linha][posiçãoJogador.coluna - 1] === 'H20'){
-        alert('Não pode passar pela água!');
-    }
-    else if (mapa[posiçãoJogador.linha][posiçãoJogador.coluna - 1] === 'Rock'){
-        alert('Não pode passar pelas pedras!');
-    }
-    else{
-        alert('Não pode andar mais para a Esquerda!');
-    }
-    desenhaMapaConsola();
-    desenhaMapa();
 }
 
 
@@ -309,9 +358,13 @@ function moveDireita () {
         mapa[posiçãoJogador.linha][posiçãoJogador.coluna + 1] = 'Player1';
         mapa[posiçãoJogador.linha][posiçãoJogador.coluna] = '';
         posiçãoJogador.coluna++;
+        desenhaMapa();
     }
     else if (mapa[posiçãoJogador.linha][posiçãoJogador.coluna + 1] === 'PK1' || mapa[posiçãoJogador.linha][posiçãoJogador.coluna + 1] === 'PK2'){
-        luta();
+        imgLuta();
+        setTimeout(function(){      // serve para dar tempo de alterar o background da luta
+            luta();
+        }, 100);
         mapa[posiçãoJogador.linha][posiçãoJogador.coluna + 1] = 'Player1';
         mapa[posiçãoJogador.linha][posiçãoJogador.coluna] = '';
         posiçãoJogador.coluna++;
@@ -320,20 +373,11 @@ function moveDireita () {
         mapa[posiçãoJogador.linha][posiçãoJogador.coluna + 1] = 'Player1';
         mapa[posiçãoJogador.linha][posiçãoJogador.coluna] = '';
         posiçãoJogador.coluna++;
+        desenhaMapa();
         terminaJogo();
+        stop();
     }
-    else if (mapa[posiçãoJogador.linha][posiçãoJogador.coluna + 1] === 'Tree'){
-        alert('Não pode passar pelas árvores!');
-    }
-    else if (mapa[posiçãoJogador.linha][posiçãoJogador.coluna + 1] === 'H20'){
-        alert('Não pode passar pela água!');
-    }
-    else if (mapa[posiçãoJogador.linha][posiçãoJogador.coluna + 1] === 'Rock'){
-        alert('Não pode passar pelas pedras!');
-    }
-    else{
-        alert('Não pode andar mais para a Direita!');
-    }
-    desenhaMapaConsola();
-    desenhaMapa();
+
+    
+    
 }

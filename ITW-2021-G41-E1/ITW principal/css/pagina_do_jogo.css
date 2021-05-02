@@ -1,7 +1,9 @@
 #container{
     background-image: url("grass_3.png");
+    background-size: 100%;
     display: grid;
     width: 40%;
+    height: 10%;
     grid-template-areas: 'l1_00 l1_01 l1_02 l1_03 l1_04 l1_05 l1_06'
                          'l2_10 l2_11 l2_12 l2_13 l2_14 l2_15 l2_16'
                          'l3_20 l3_21 l3_22 l3_23 l3_24 l3_25 l3_26'
@@ -10,6 +12,11 @@
                          'l6_50 l6_51 l6_52 l6_53 l6_54 l6_55 l6_56'
                          'l7_60 l7_61 l7_62 l7_63 l7_64 l7_65 l7_66';
   margin:auto auto;
+}
+
+
+.max-width{
+    margin: auto 45%;
 }
 
 img{
