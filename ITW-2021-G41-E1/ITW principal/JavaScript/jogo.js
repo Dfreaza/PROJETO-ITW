@@ -1,5 +1,7 @@
 "use strict";
 
+
+
 //  ↓↓↓↓↓↓↓↓↓↓↓↓↓↓  codigo para fazer o tempo do jogo  ↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 
 
 
@@ -13,7 +15,18 @@ var cron;
 //Inicia o temporizador
 function start() {
     cron = setInterval(() => { timer(); }, tempo);
+
+//     var audio = document.getElementById("audio");
+//     audio.start();
 }
+
+
+//   Musica
+
+// function playMusic() {
+//     var audio = document.getElementById("audio");
+//     audio.playMusic();
+// }
 
 
 //Para o temporizador 
