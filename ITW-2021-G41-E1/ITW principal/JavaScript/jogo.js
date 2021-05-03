@@ -45,6 +45,7 @@ function timer() {
     
     //Insere o valor tratado no elemento counter
     document.getElementById('counter').innerText = format;
+    console.log(format);
 
     //Retorna o valor tratado
     return format;
@@ -53,13 +54,130 @@ function timer() {
 // ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ codigo para fazer o tempo do jogo ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 
 
-function imgLuta(){
-    $('img').prop("src", "imagens/nada.png"); 
-    $('#container').css('background-image', 'url("imagens/Luta/Bulba_cater.png")');   
+function imgluta1(){
+    $('img').prop("src", "imagens/nada.png");
+
+
+    /*Este if vai ver qual pokemon está no mapa e quando for chamada a função 'imgluta' troca o background do mapa para outro
+    luta que vai ter o pokemon do jogador e o oponente */
+
+    if (pokemon.pk1 === 'cater'){
+
+        if (pokemon.pkPlayer === 'Bulba'){
+            $('#container').css('background-image', 'url("imagens/Luta/Bulba_cater.png")');
+        }
+        else if (pokemon.pkPlayer === 'char'){
+            $('#container').css('background-image', 'url("imagens/Luta/char_cater.png")');
+        }
+        else if (pokemon.pkPlayer === 'squirtle'){
+            $('#container').css('background-image', 'url("imagens/Luta/squirtle_cater.png")');
+        }
+    }
+
+    /*Este if vai ver qual pokemon está no mapa e quando for chamada a função 'imgluta' troca o background do mapa para outro
+    luta que vai ter o pokemon do jogador e o oponente */
+
+    if (pokemon.pk1 === 'Eiscue'){
+
+        if (pokemon.pkPlayer === 'Bulba'){
+            $('#container').css('background-image', 'url("imagens/Luta/Bulba_Eiscue.png")');
+        }
+        else if (pokemon.pkPlayer === 'char'){
+            $('#container').css('background-image', 'url("imagens/Luta/char_Eiscue.png")');
+        }
+        else if (pokemon.pkPlayer === 'squirtle'){
+            $('#container').css('background-image', 'url("imagens/Luta/squirtle_Eiscue.png")');
+        }
+    }
+
+    /*Este if vai ver qual pokemon está no mapa e quando for chamada a função 'imgluta' troca o background do mapa para outro
+    luta que vai ter o pokemon do jogador e o oponente */
+
+    if (pokemon.pk1 === 'geodude'){
+
+        if (pokemon.pkPlayer === 'Bulba'){
+            $('#container').css('background-image', 'url("imagens/Luta/Bulba_geodude.png")');
+        }
+        else if (pokemon.pkPlayer === 'char'){
+            $('#container').css('background-image', 'url("imagens/Luta/char_geodude.png")');
+        }
+        else if (pokemon.pkPlayer === 'squirtle'){
+            $('#container').css('background-image', 'url("imagens/Luta/squirtle_geodude.png")');
+        }
+    }
+}
+
+function imgluta2(){
+    $('img').prop("src", "imagens/nada.png");
+
+
+    /*Este if vai ver qual pokemon está no mapa e quando for chamada a função 'imgluta' troca o background do mapa para outro
+    luta que vai ter o pokemon do jogador e o oponente */
+
+    if (pokemon.pk2 === 'pidgey'){
+
+        if (pokemon.pkPlayer === 'Bulba'){
+            $('#container').css('background-image', 'url("imagens/Luta/Bulba_pidgey.png")');
+        }
+        else if (pokemon.pkPlayer === 'char'){
+            $('#container').css('background-image', 'url("imagens/Luta/char_pidgey.png")');
+        }
+        else if (pokemon.pkPlayer === 'squirtle'){
+            $('#container').css('background-image', 'url("imagens/Luta/squirtle_pidgey.png")');
+        }
+    }
+
+    /*Este if vai ver qual pokemon está no mapa e quando for chamada a função 'imgluta' troca o background do mapa para outro
+    luta que vai ter o pokemon do jogador e o oponente */
+
+    if (pokemon.pk2 === 'Pikachu'){
+
+        if (pokemon.pkPlayer === 'Bulba'){
+            $('#container').css('background-image', 'url("imagens/Luta/Bulba_pikachu.png")');
+        }
+        else if (pokemon.pkPlayer === 'char'){
+            $('#container').css('background-image', 'url("imagens/Luta/char_pikachu.png")');
+        }
+        else if (pokemon.pkPlayer === 'squirtle'){
+            $('#container').css('background-image', 'url("imagens/Luta/squirtle_pikachu.png")');
+        }
+    }
+
+    /*Este if vai ver qual pokemon está no mapa e quando for chamada a função 'imgluta' troca o background do mapa para outro
+    luta que vai ter o pokemon do jogador e o oponente */
+
+    if (pokemon.pk2 === 'Growlithe'){
+
+        if (pokemon.pkPlayer === 'Bulba'){
+            $('#container').css('background-image', 'url("imagens/Luta/Bulba_growlithe.png")');
+        }
+        else if (pokemon.pkPlayer === 'char'){
+            $('#container').css('background-image', 'url("imagens/Luta/char_growlithe.png")');
+        }
+        else if (pokemon.pkPlayer === 'squirtle'){
+            $('#container').css('background-image', 'url("imagens/Luta/squirtle_growlithe.png")');
+        }
+    }
 }
 
 function voltaMapa(){
-    $('#container').css('background-image', 'url("css/imagens_css/grass_3.png")');
+
+    /* este if serve para ver qual o mapa que está a ser jogado pois os pokemons são fixos dos mapa ou seja se o cater 
+    existir quer dizer que o mapa de grass está a ser jogado
+    */
+
+    if (pokemon.pk1 === 'cater'){
+        $('#container').css('background-image', 'url("css/imagens_css/grass_3.png")');
+    }
+
+    if (pokemon.pk1 === 'Eiscue'){
+        $('#container').css('background-image', 'url("css/imagens_css/grass_3.png")');
+    }
+
+    if (pokemon.pk1 === 'geodude'){
+        $('#container').css('background-image', 'url("css/imagens_css/grass_3.png")');
+    }
+
     desenhaMapa();
 }
 
@@ -73,6 +191,14 @@ let posiçãoJogador = {
     linha: null,
 
     coluna: null
+}
+
+let pokemon = {
+    pk1: null,
+
+    pk2: null,
+
+    pkPlayer: null
 }
 
 window.addEventListener("load", mapa1);
@@ -93,10 +219,63 @@ function mapa1 () {
 
     tamanhoMapa = 7
 
+    pokemon.pk1 = 'cater';
+    pokemon.pk2 = 'pidgey';
+    pokemon.pkPlayer = 'Bulba';
 
     desenhaMapaConsola();
     desenhaMapa();
 }
+
+function mapa2(){
+    mapa = [
+        ['Tree','Tree','Tree','Tree','Tree','Tree','Tree'],
+        ['Tree','Player1','','PK1','Tree','','Tree'],
+        ['Tree','H20','H20','','','','Tree'],
+        ['Tree','H20','','','Rock','','Tree'],
+        ['Tree','Tree','','Rock','Rock','Tree','Tree'],
+        ['Tree','','','','PK2','','End'],
+        ['Tree','Tree','Tree','Tree','Tree','Tree','Tree']
+    ]
+
+    posiçãoJogador.linha = 1;
+    posiçãoJogador.coluna = 1;
+
+    tamanhoMapa = 7
+
+    pokemon.pk1 = 'Eiscue';
+    pokemon.pk2 = 'pikachu';
+    pokemon.pkPlayer = 'Bulba';
+
+    desenhaMapaConsola();
+    desenhaMapa();
+}
+
+
+function mapa3(){
+    mapa = [
+        ['Tree','Tree','Tree','Tree','Tree','Tree','Tree'],
+        ['Tree','Player1','','PK1','Tree','','Tree'],
+        ['Tree','H20','H20','','','','Tree'],
+        ['Tree','H20','','','Rock','','Tree'],
+        ['Tree','Tree','','Rock','Rock','Tree','Tree'],
+        ['Tree','','','','PK2','','End'],
+        ['Tree','Tree','Tree','Tree','Tree','Tree','Tree']
+    ]
+
+    posiçãoJogador.linha = 1;
+    posiçãoJogador.coluna = 1;
+
+    tamanhoMapa = 7
+
+    pokemon.pk1 = 'geodude';
+    pokemon.pk2 = 'growlithe';
+    pokemon.pkPlayer = 'Bulba';
+
+    desenhaMapaConsola();
+    desenhaMapa();
+}
+
 
 function desenhaMapaConsola (){
     for (let i = 0; i < tamanhoMapa; i++){
@@ -217,7 +396,6 @@ function querCapturar(){
 
 function capturaPokemon(){
     let numeroAleatorio = Math.floor(Math.random() * 10) + 1
-    console.log(numeroAleatorio);
 
     if (numeroAleatorio > 5){
         alert('capturou o pokemon Parabens!!!')
@@ -266,8 +444,17 @@ function moveBaixo () {
         posiçãoJogador.linha++;
         desenhaMapa();
     }
-    else if (mapa[posiçãoJogador.linha + 1][posiçãoJogador.coluna] === 'PK1' || mapa[posiçãoJogador.linha + 1][posiçãoJogador.coluna] === 'PK2'){
-        imgLuta();
+    else if (mapa[posiçãoJogador.linha + 1][posiçãoJogador.coluna] === 'PK1'){
+        imgluta1();
+        setTimeout(function(){    // serve para dar tempo de alterar o background da luta 
+            luta();
+        }, 100);
+        mapa[posiçãoJogador.linha + 1][posiçãoJogador.coluna] = 'Player1';
+        mapa[posiçãoJogador.linha][posiçãoJogador.coluna] = '';
+        posiçãoJogador.linha++;
+    }
+    else if (mapa[posiçãoJogador.linha + 1][posiçãoJogador.coluna] === 'PK2'){
+        imgluta2();
         setTimeout(function(){    // serve para dar tempo de alterar o background da luta 
             luta();
         }, 100);
@@ -297,9 +484,18 @@ function moveCima () {
         posiçãoJogador.linha--;
         desenhaMapa();
     }
-    else if (mapa[posiçãoJogador.linha - 1][posiçãoJogador.coluna] === 'PK1' || mapa[posiçãoJogador.linha - 1][posiçãoJogador.coluna] === 'PK2'){
-        imgLuta();
-        setTimeout(function(){      // serve para dar tempo de alterar o background da luta
+    else if (mapa[posiçãoJogador.linha - 1][posiçãoJogador.coluna] === 'PK1'){
+        imgluta1();
+        setTimeout(function(){    // serve para dar tempo de alterar o background da luta 
+            luta();
+        }, 100);
+        mapa[posiçãoJogador.linha - 1][posiçãoJogador.coluna] = 'Player1';
+        mapa[posiçãoJogador.linha][posiçãoJogador.coluna] = '';
+        posiçãoJogador.linha--;
+    }
+    else if (mapa[posiçãoJogador.linha - 1][posiçãoJogador.coluna] === 'PK2'){
+        imgluta2();
+        setTimeout(function(){    // serve para dar tempo de alterar o background da luta 
             luta();
         }, 100);
         mapa[posiçãoJogador.linha - 1][posiçãoJogador.coluna] = 'Player1';
@@ -329,9 +525,18 @@ function moveEsquerda () {
         posiçãoJogador.coluna--;
         desenhaMapa();
     }
-    else if (mapa[posiçãoJogador.linha][posiçãoJogador.coluna - 1] === 'PK1' || mapa[posiçãoJogador.linha][posiçãoJogador.coluna - 1] === 'PK2'){
-        imgLuta();
-        setTimeout(function(){         // serve para dar tempo de alterar o background da luta   
+    else if (mapa[posiçãoJogador.linha][posiçãoJogador.coluna - 1] === 'PK1'){
+        imgluta1();
+        setTimeout(function(){    // serve para dar tempo de alterar o background da luta 
+            luta();
+        }, 100);
+        mapa[posiçãoJogador.linha][posiçãoJogador.coluna - 1] = 'Player1';
+        mapa[posiçãoJogador.linha][posiçãoJogador.coluna] = '';
+        posiçãoJogador.coluna--;
+    }
+    else if (mapa[posiçãoJogador.linha][posiçãoJogador.coluna - 1] === 'PK2'){
+        imgluta2();
+        setTimeout(function(){    // serve para dar tempo de alterar o background da luta 
             luta();
         }, 100);
         mapa[posiçãoJogador.linha][posiçãoJogador.coluna - 1] = 'Player1';
@@ -360,9 +565,18 @@ function moveDireita () {
         posiçãoJogador.coluna++;
         desenhaMapa();
     }
-    else if (mapa[posiçãoJogador.linha][posiçãoJogador.coluna + 1] === 'PK1' || mapa[posiçãoJogador.linha][posiçãoJogador.coluna + 1] === 'PK2'){
-        imgLuta();
-        setTimeout(function(){      // serve para dar tempo de alterar o background da luta
+    else if (mapa[posiçãoJogador.linha][posiçãoJogador.coluna + 1] === 'PK1'){
+        imgluta1();
+        setTimeout(function(){    // serve para dar tempo de alterar o background da luta 
+            luta();
+        }, 100);
+        mapa[posiçãoJogador.linha][posiçãoJogador.coluna + 1] = 'Player1';
+        mapa[posiçãoJogador.linha][posiçãoJogador.coluna] = '';
+        posiçãoJogador.coluna++;
+    }
+    else if (mapa[posiçãoJogador.linha][posiçãoJogador.coluna + 1] === 'PK2'){
+        imgluta2();
+        setTimeout(function(){    // serve para dar tempo de alterar o background da luta 
             luta();
         }, 100);
         mapa[posiçãoJogador.linha][posiçãoJogador.coluna + 1] = 'Player1';
@@ -377,7 +591,5 @@ function moveDireita () {
         terminaJogo();
         stop();
     }
-
-    
     
 }
