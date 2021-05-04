@@ -335,7 +335,7 @@ function mapa3(){
 
     desenhaMapaConsola();
     desenhaMapa();
-    $('#container1a').css('background-image', 'url("css/Imagens_css/sand_tile.png")');
+    $('#container1a').css('background-image', 'url("css/Imagens_css/sand_tile2.png")');
 }
 
 
