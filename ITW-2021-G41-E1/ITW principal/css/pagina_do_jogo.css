@@ -1,5 +1,5 @@
 #container{
-    background-image: url("imagens_css/grass_3.png");
+    background-image: url("Imagens_css/sand-tile-background\ \(2\).png");
     background-size: 100%;
     display: grid;
     width: 40%;
@@ -28,6 +28,7 @@ img{
 
 #l1_00{
     grid-area: l1_00;
+    
 }
 
 #l1_01{
