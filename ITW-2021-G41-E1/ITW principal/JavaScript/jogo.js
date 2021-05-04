@@ -4,15 +4,35 @@
 window.addEventListener("load", principal);
 
 let mensagem = null;
+let select = null;
+let pedeValorAoJogador = null;
 
 function principal(){
-    mapa1();
     document.getElementById("start").onclick = start;
-    audio = document.getElementById("myAudio");
-    mensagem = document.getElementById('mensagem');
+    audio = document.getElementById("myAudio"); // vai buscar o id do audio para usar na função start
+    mensagem = document.getElementById('mensagem'); //vai buscar o id do paragrafo para ir alterando a mensagem
+    select = document.getElementById('selectmapa'); // vai buscar o id da drop down para saber qual opção esta selecionada
+    pedeValorAoJogador = document.getElementById('NumAleatorio') // vai buscar o id do label para ir alterando a pergunda ao jogador
+    mapas();
 }
 
 
+function mapas () {
+	let value = select.options[select.selectedIndex].value;
+	
+    if (value === 'grass_map'){
+        mapa1();
+    }
+    
+    else if (value === 'cave_map'){
+        mapa2();
+    }
+
+    else if (value === 'water_map'){
+        mapa3();
+    }
+
+}
 
 //  ↓↓↓↓↓↓↓↓↓↓↓↓↓↓  codigo para fazer o tempo do jogo  ↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 
 
@@ -241,7 +261,6 @@ let pokemon = {
     pkPlayer: null
 }
 
-window.addEventListener("load", mapa1);
 
 function mapa1 () {
     mapa = [
@@ -265,6 +284,7 @@ function mapa1 () {
 
     desenhaMapaConsola();
     desenhaMapa();
+    $('#container1a').css('background-image', 'url("css/Imagens_css/grass_3.png")');
     
 }
 
@@ -272,10 +292,10 @@ function mapa2(){
     mapa = [
         ['Rock2','Rock2','Rock2','Rock2','Rock2','Rock2','Rock2'],
         ['Rock2','Player1','','','','RockCave','Rock2'],
-        ['Rock2','RockCave','Lava','','pk1','','Rock2'],
-        ['Rock2','','pk1','RockCave','','','Rock2'],
+        ['Rock2','RockCave','Lava','','PK1','','Rock2'],
+        ['Rock2','','PK1','RockCave','','','Rock2'],
         ['Rock2','','','','','','Rock2'],
-        ['Rock2','Lava','','pk2','','','End'],
+        ['Rock2','Lava','','PK2','','','End'],
         ['Rock2','Rock2','Rock2','Rock2','Rock2','Rock2','Rock2']
     ]
 
@@ -283,38 +303,39 @@ function mapa2(){
     posiçãoJogador.coluna = 1;
 
     tamanhoMapa = 7
-
-    pokemon.pk1 = 'Eiscue';
-    pokemon.pk2 = 'pikachu';
-    pokemon.pkPlayer = localStorage;
-
-    desenhaMapaConsola();
-    desenhaMapa();
-}
-
-
-function mapa3(){
-    mapa = [
-        ['water','water','water','water','water','water','water'],
-        ['water','Player1','','PK1','Tree','','Tree'],
-        ['water','H20','H20','','','','Tree'],
-        ['water','H20','','','Rock','','Tree'],
-        ['water','Tree','','Rock','Rock','Tree','Tree'],
-        ['water','','','','PK2','','End'],
-        ['water','water','water','water','water','water','water']
-    ]
-
-    posiçãoJogador.linha = 1;
-    posiçãoJogador.coluna = 1;
-
-    tamanhoMapa = 7
-
     pokemon.pk1 = 'geodude';
     pokemon.pk2 = 'growlithe';
     pokemon.pkPlayer = 'Bulba';
 
     desenhaMapaConsola();
     desenhaMapa();
+    $('#container1a').css('background-image', 'url("imagens/Cave.png")');
+}
+
+
+function mapa3(){
+    mapa = [
+        ['','','','','','',''],
+        ['','','Player1','','PK1','',''],
+        ['','','','PK2','','',''],
+        ['','','','','','',''],
+        ['','','','','','',''],
+        ['','','','','','',''],
+        ['','','','','','','']
+    ]
+
+    posiçãoJogador.linha = 1;
+    posiçãoJogador.coluna = 2;
+
+    tamanhoMapa = 7
+
+    pokemon.pk1 = 'Eiscue';
+    pokemon.pk2 = 'Pikachu';
+    pokemon.pkPlayer = 'Bulba';
+
+    desenhaMapaConsola();
+    desenhaMapa();
+    $('#container1a').css('background-image', 'url("css/Imagens_css/sand_tile.png")');
 }
 
 
@@ -371,10 +392,28 @@ function desenhaMapa (){
             else if (mapa[i][j] === 'End'){
                 $('#' + 'l'+ (i+1) + '_' + i +'' +j).prop("src","imagens/nada.png");
             }
+            else if (mapa[i][j] === 'PK1' && pokemon.pk1 === 'geodude'){
+                $('#' + 'l'+ (i+1) + '_' + i +'' +j).prop("src","imagens/erva_gruta.png");
+            }
+            else if (mapa[i][j] === 'PK2' && pokemon.pk1 === 'geodude'){
+                $('#' + 'l'+ (i+1) + '_' + i +'' +j).prop("src","imagens/erva_gruta.png");
+            }
             else if (mapa[i][j] === 'PK1'){
                 $('#' + 'l'+ (i+1) + '_' + i +'' +j).prop("src","imagens/nada.png");
             }
             else if (mapa[i][j] === 'PK2'){
+                $('#' + 'l'+ (i+1) + '_' + i +'' +j).prop("src","imagens/nada.png");
+            }
+            else if (mapa[i][j] === 'Rock2'){
+                $('#' + 'l'+ (i+1) + '_' + i +'' +j).prop("src","imagens/nada.png");
+            }
+            else if (mapa[i][j] === 'RockCave'){
+                $('#' + 'l'+ (i+1) + '_' + i +'' +j).prop("src","imagens/rock_gruta1.png");
+            }
+            else if (mapa[i][j] === 'Lava'){
+                $('#' + 'l'+ (i+1) + '_' + i +'' +j).prop("src","imagens/lava1.png");
+            }
+            else if (mapa[i][j] === 'water'){
                 $('#' + 'l'+ (i+1) + '_' + i +'' +j).prop("src","imagens/nada.png");
             }
         }

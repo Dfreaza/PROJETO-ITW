@@ -107,10 +107,10 @@
 
 <!-- tempo -->
     <div class="max-width">
-      <label for="selectmapa">Maps</label>
+      <label name="selectmap">Maps:</label>
         <select id="selectmapa" name="Maps">
           <option value="grass_map" selected>Florest map</option>
-          <option value="cave_map">Cave map</option>
+          <option value="cave_map" selected>Cave map</option>
           <option value="water_map">Island map</option>
         </select>
 
@@ -225,8 +225,8 @@
       <div id="container1b">
         <form>
 
-        <label>Adivinhe um numero entre 1 e 12 <input type="text" name="number">
-            <input type="button" onclick="luta()"
+        <label id="NumAleatorio"><input type="hidden" name="number">
+            <input type="hidden" onclick="luta()"
                    value="submeter">
         </label>
         <p id="mensagem"></p>  

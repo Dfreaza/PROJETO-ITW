@@ -1,7 +1,4 @@
 #container{
-<<<<<<< Updated upstream
-    background-image: url("Imagens_css/sand-tile-background\ \(2\).png");
-=======
     display: grid;
     grid-template-areas: 'containerEsquerda containerDireita';
 }
@@ -14,7 +11,6 @@
 #container1a{
     grid-area: containerEsquerda;
     background-image: url("imagens_css/grass_3.png");
->>>>>>> Stashed changes
     background-size: 100%;
     display: grid;
     width: 40%;
@@ -26,6 +22,10 @@
                          'l6_50 l6_51 l6_52 l6_53 l6_54 l6_55 l6_56'
                          'l7_60 l7_61 l7_62 l7_63 l7_64 l7_65 l7_66';
   margin:auto auto;
+}
+
+#counter{
+    margin-left: 15%;
 }
 
 
