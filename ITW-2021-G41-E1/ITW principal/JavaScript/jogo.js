@@ -1,32 +1,46 @@
 "use strict";
 
 
-
 //  ↓↓↓↓↓↓↓↓↓↓↓↓↓↓  codigo para fazer o tempo do jogo  ↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 
 
 
-var hh = 0;
-var mm = 0;
-var ss = 0;
+let hh = 0;
+let mm = 0;
+let ss = 0;
 
-var tempo = 1000;//Quantos milésimos valem 1 segundo?
-var cron;
+let tempo = 1000;//Quantos milésimos valem 1 segundo?
+let cron;
+
+let audio = null;
+
 
 //Inicia o temporizador
 function start() {
     cron = setInterval(() => { timer(); }, tempo);
+   
+    audio.play(); 
+       
 
-//     var audio = document.getElementById("audio");
-//     audio.start();
+    document.addEventListener('keydown', (event) => {
+        const keyName = event.key;
+      
+        if (keyName === 'ArrowUp') {
+            moveCima();
+        }
+        else if (keyName === 'ArrowDown'){
+            moveBaixo();
+        }
+        else if (keyName === 'ArrowRight'){
+            moveDireita();
+        }
+        else if (keyName === 'ArrowLeft'){
+            moveEsquerda();
+        }
+    
+      }, false);
+    
 }
 
-
-//   Musica
-
-// function playMusic() {
-//     var audio = document.getElementById("audio");
-//     audio.playMusic();
-// }
 
 
 //Para o temporizador 
@@ -37,6 +51,7 @@ function stop() {
     ss = 0;
 
     document.getElementById('counter').innerText = '00:00:00';
+    console.log('counter')
 }
 
 //Faz a contagem do tempo e exibição
@@ -238,6 +253,8 @@ function mapa1 () {
 
     desenhaMapaConsola();
     desenhaMapa();
+    document.getElementById("start").onclick = start;
+    audio = document.getElementById("myAudio");
 }
 
 function mapa2(){
@@ -424,24 +441,6 @@ function terminaJogo(){
     alert('parabens acabou o jogo!!!')
 }
 
-
-document.addEventListener('keydown', (event) => {
-    const keyName = event.key;
-  
-    if (keyName === 'ArrowUp') {
-        moveCima();
-    }
-    else if (keyName === 'ArrowDown'){
-        moveBaixo();
-    }
-    else if (keyName === 'ArrowRight'){
-        moveDireita();
-    }
-    else if (keyName === 'ArrowLeft'){
-        moveEsquerda();
-    }
-
-  }, false);
 
 
 // ↓↓↓↓↓↓↓ movimentação do jogador (cima,baixo,esquerda,direita) ↓↓↓↓↓↓↓

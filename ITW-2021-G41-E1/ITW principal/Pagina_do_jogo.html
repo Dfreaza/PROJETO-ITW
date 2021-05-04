@@ -97,14 +97,17 @@
 <!-- musica de fundo -->
 
 
-<audio loop id="audio" src="audio/route.mp3"></audio>
+<audio loop id="myAudio">
+  <source src="audio/route.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
 
 
 
 
 <!-- tempo -->
     <div class="max-width">
-      <button onclick="start(); playMusic();"  class="start">Start Game</button>
+      <button id="start" >Start Game</button>
       
       <h1 id="counter">00:00:00</h1>
     </div>
