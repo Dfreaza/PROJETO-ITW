@@ -1,6 +1,19 @@
 "use strict";
 
 
+window.addEventListener("load", principal);
+
+let mensagem = null;
+
+function principal(){
+    mapa1();
+    document.getElementById("start").onclick = start;
+    audio = document.getElementById("myAudio");
+    mensagem = document.getElementById('mensagem');
+}
+
+
+
 //  ↓↓↓↓↓↓↓↓↓↓↓↓↓↓  codigo para fazer o tempo do jogo  ↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 
 
 
@@ -73,7 +86,6 @@ function timer() {
     
     //Insere o valor tratado no elemento counter
     document.getElementById('counter').innerText = format;
-    console.log(format);
 
     //Retorna o valor tratado
     return format;
@@ -92,13 +104,13 @@ function imgluta1(){
     if (pokemon.pk1 === 'cater'){
 
         if (pokemon.pkPlayer === 'Bulba'){
-            $('#container').css('background-image', 'url("imagens/Luta/Bulba_cater.png")');
+            $('#container1a').css('background-image', 'url("imagens/Luta/Bulba_cater.png")');
         }
         else if (pokemon.pkPlayer === 'char'){
-            $('#container').css('background-image', 'url("imagens/Luta/char_cater.png")');
+            $('#container1a').css('background-image', 'url("imagens/Luta/char_cater.png")');
         }
         else if (pokemon.pkPlayer === 'squirtle'){
-            $('#container').css('background-image', 'url("imagens/Luta/squirtle_cater.png")');
+            $('#container1a').css('background-image', 'url("imagens/Luta/squirtle_cater.png")');
         }
     }
 
@@ -108,13 +120,13 @@ function imgluta1(){
     if (pokemon.pk1 === 'Eiscue'){
 
         if (pokemon.pkPlayer === 'Bulba'){
-            $('#container').css('background-image', 'url("imagens/Luta/Bulba_Eiscue.png")');
+            $('#container1a').css('background-image', 'url("imagens/Luta/Bulba_Eiscue.png")');
         }
         else if (pokemon.pkPlayer === 'char'){
-            $('#container').css('background-image', 'url("imagens/Luta/char_Eiscue.png")');
+            $('#container1a').css('background-image', 'url("imagens/Luta/char_Eiscue.png")');
         }
         else if (pokemon.pkPlayer === 'squirtle'){
-            $('#container').css('background-image', 'url("imagens/Luta/squirtle_Eiscue.png")');
+            $('#container1a').css('background-image', 'url("imagens/Luta/squirtle_Eiscue.png")');
         }
     }
 
@@ -124,13 +136,13 @@ function imgluta1(){
     if (pokemon.pk1 === 'geodude'){
 
         if (pokemon.pkPlayer === 'Bulba'){
-            $('#container').css('background-image', 'url("imagens/Luta/Bulba_geodude.png")');
+            $('#container1a').css('background-image', 'url("imagens/Luta/Bulba_geodude.png")');
         }
         else if (pokemon.pkPlayer === 'char'){
-            $('#container').css('background-image', 'url("imagens/Luta/char_geodude.png")');
+            $('#container1a').css('background-image', 'url("imagens/Luta/char_geodude.png")');
         }
         else if (pokemon.pkPlayer === 'squirtle'){
-            $('#container').css('background-image', 'url("imagens/Luta/squirtle_geodude.png")');
+            $('#container1a').css('background-image', 'url("imagens/Luta/squirtle_geodude.png")');
         }
     }
 }
@@ -145,13 +157,13 @@ function imgluta2(){
     if (pokemon.pk2 === 'pidgey'){
 
         if (pokemon.pkPlayer === 'Bulba'){
-            $('#container').css('background-image', 'url("imagens/Luta/Bulba_pidgey.png")');
+            $('#container1a').css('background-image', 'url("imagens/Luta/Bulba_pidgey.png")');
         }
         else if (pokemon.pkPlayer === 'char'){
-            $('#container').css('background-image', 'url("imagens/Luta/char_pidgey.png")');
+            $('#container1a').css('background-image', 'url("imagens/Luta/char_pidgey.png")');
         }
         else if (pokemon.pkPlayer === 'squirtle'){
-            $('#container').css('background-image', 'url("imagens/Luta/squirtle_pidgey.png")');
+            $('#container1a').css('background-image', 'url("imagens/Luta/squirtle_pidgey.png")');
         }
     }
 
@@ -161,13 +173,13 @@ function imgluta2(){
     if (pokemon.pk2 === 'Pikachu'){
 
         if (pokemon.pkPlayer === 'Bulba'){
-            $('#container').css('background-image', 'url("imagens/Luta/Bulba_pikachu.png")');
+            $('#container1a').css('background-image', 'url("imagens/Luta/Bulba_pikachu.png")');
         }
         else if (pokemon.pkPlayer === 'char'){
-            $('#container').css('background-image', 'url("imagens/Luta/char_pikachu.png")');
+            $('#container1a').css('background-image', 'url("imagens/Luta/char_pikachu.png")');
         }
         else if (pokemon.pkPlayer === 'squirtle'){
-            $('#container').css('background-image', 'url("imagens/Luta/squirtle_pikachu.png")');
+            $('#container1a').css('background-image', 'url("imagens/Luta/squirtle_pikachu.png")');
         }
     }
 
@@ -177,13 +189,13 @@ function imgluta2(){
     if (pokemon.pk2 === 'Growlithe'){
 
         if (pokemon.pkPlayer === 'Bulba'){
-            $('#container').css('background-image', 'url("imagens/Luta/Bulba_growlithe.png")');
+            $('#container1a').css('background-image', 'url("imagens/Luta/Bulba_growlithe.png")');
         }
         else if (pokemon.pkPlayer === 'char'){
-            $('#container').css('background-image', 'url("imagens/Luta/char_growlithe.png")');
+            $('#container1a').css('background-image', 'url("imagens/Luta/char_growlithe.png")');
         }
         else if (pokemon.pkPlayer === 'squirtle'){
-            $('#container').css('background-image', 'url("imagens/Luta/squirtle_growlithe.png")');
+            $('#container1a').css('background-image', 'url("imagens/Luta/squirtle_growlithe.png")');
         }
     }
 }
@@ -195,15 +207,15 @@ function voltaMapa(){
     */
 
     if (pokemon.pk1 === 'cater'){
-        $('#container').css('background-image', 'url("css/imagens_css/grass_3.png")');
+        $('#container1a').css('background-image', 'url("css/imagens_css/grass_3.png")');
     }
 
     if (pokemon.pk1 === 'Eiscue'){
-        $('#container').css('background-image', 'url("css/imagens_css/grass_3.png")');
+        $('#container1a').css('background-image', 'url("css/imagens_css/grass_3.png")');
     }
 
     if (pokemon.pk1 === 'geodude'){
-        $('#container').css('background-image', 'url("css/imagens_css/grass_3.png")');
+        $('#container1a').css('background-image', 'url("css/imagens_css/grass_3.png")');
     }
 
     desenhaMapa();
@@ -253,19 +265,18 @@ function mapa1 () {
 
     desenhaMapaConsola();
     desenhaMapa();
-    document.getElementById("start").onclick = start;
-    audio = document.getElementById("myAudio");
+    
 }
 
 function mapa2(){
     mapa = [
-        ['Tree','Tree','Tree','Tree','Tree','Tree','Tree'],
-        ['Tree','Player1','','PK1','Tree','','Tree'],
-        ['Tree','H20','H20','','','','Tree'],
-        ['Tree','H20','','','Rock','','Tree'],
-        ['Tree','Tree','','Rock','Rock','Tree','Tree'],
-        ['Tree','','','','PK2','','End'],
-        ['Tree','Tree','Tree','Tree','Tree','Tree','Tree']
+        ['Rock2','Rock2','Rock2','Rock2','Rock2','Rock2','Rock2'],
+        ['Rock2','Player1','','','','RockCave','Rock2'],
+        ['Rock2','RockCave','Lava','','pk1','','Rock2'],
+        ['Rock2','','pk1','RockCave','','','Rock2'],
+        ['Rock2','','','','','','Rock2'],
+        ['Rock2','Lava','','pk2','','','End'],
+        ['Rock2','Rock2','Rock2','Rock2','Rock2','Rock2','Rock2']
     ]
 
     posiçãoJogador.linha = 1;
@@ -275,7 +286,7 @@ function mapa2(){
 
     pokemon.pk1 = 'Eiscue';
     pokemon.pk2 = 'pikachu';
-    pokemon.pkPlayer = 'Bulba';
+    pokemon.pkPlayer = localStorage;
 
     desenhaMapaConsola();
     desenhaMapa();
@@ -284,13 +295,13 @@ function mapa2(){
 
 function mapa3(){
     mapa = [
-        ['Tree','Tree','Tree','Tree','Tree','Tree','Tree'],
-        ['Tree','Player1','','PK1','Tree','','Tree'],
-        ['Tree','H20','H20','','','','Tree'],
-        ['Tree','H20','','','Rock','','Tree'],
-        ['Tree','Tree','','Rock','Rock','Tree','Tree'],
-        ['Tree','','','','PK2','','End'],
-        ['Tree','Tree','Tree','Tree','Tree','Tree','Tree']
+        ['water','water','water','water','water','water','water'],
+        ['water','Player1','','PK1','Tree','','Tree'],
+        ['water','H20','H20','','','','Tree'],
+        ['water','H20','','','Rock','','Tree'],
+        ['water','Tree','','Rock','Rock','Tree','Tree'],
+        ['water','','','','PK2','','End'],
+        ['water','water','water','water','water','water','water']
     ]
 
     posiçãoJogador.linha = 1;
@@ -371,40 +382,24 @@ function desenhaMapa (){
     console.log();
 }
 
-function pedeValorAoJogador(nivelDoPokemon) {
-    let n1
-    let pedido
-    do {
-      pedido = prompt(`Para atacar adivinhe um número entre 1 e ${nivelDoPokemon}`)
-      n1 = parseInt(pedido);
-      if(n1 > nivelDoPokemon || n1 < 1){
-        alert(`O valor ${n1} está fora do intervalo de validade.`);
-      }
-      else if (Number.isNaN(n1)){
-        alert(`O valor ${pedido} não é um número inteiro.`);
-      }
-    } while (Number.isNaN(n1) || n1 > nivelDoPokemon || n1 < 1);
-  
-    return n1
-  }
-
 
 function luta(){
     let levelPk = 12;
     let valorDoPlayer = null;
+    
 
 
     let numeroAleatorio = Math.floor(Math.random() * levelPk) + 1
     console.log(numeroAleatorio);
 
     do{
-        valorDoPlayer = pedeValorAoJogador(levelPk);
+        
         if (valorDoPlayer != numeroAleatorio){
-            alert('O ataque falhou continue tentando');
+             mensagem.innerHTMl('O ataque falhou continue tentando');
         }
     } while (valorDoPlayer != numeroAleatorio){
         if (valorDoPlayer == numeroAleatorio){
-            alert('O ataque acertou, derrotou o pokemon');
+            mensagem.innerHTMl('O ataque acertou, derrotou o pokemon')  ;
             querCapturar();
         }
     
