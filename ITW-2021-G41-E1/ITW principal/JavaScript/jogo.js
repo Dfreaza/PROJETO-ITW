@@ -6,7 +6,9 @@ window.addEventListener("load", principal);
 let mensagem = null;
 let select = null;
 let pedeValorAoJogador = null;
-let tempoDejogo = null;
+let tempoSegundos = null;
+let tempoMinutos = null;
+let tempoHoras = null;
 
 function principal(){
     document.getElementById("start").onclick = start;
@@ -92,14 +94,12 @@ function pausaMusica(){
 
 //Para o temporizador 
 function stop() {
-    console.log(tempoDejogo);
     clearInterval(cron);
     hh = 0;
     mm = 0;
     ss = 0;
 
     document.getElementById('counter').innerText = '00:00:00';
-    console.log('counter')
 }
 
 //Faz a contagem do tempo e exibição
@@ -117,12 +117,14 @@ function timer() {
     }
 
     //Cria uma variável com o valor tratado HH:MM:SS
-    var format = (hh < 10 ? '0' + hh : hh) + ':' + (mm < 10 ? '0' + mm : mm) + ':' + (ss < 10 ? '0' + ss : ss);
+    let format = (hh < 10 ? '0' + String(hh) : String(hh)) + ':' + (mm < 10 ? '0' + String(mm) : String(mm)) + ':' + (ss < 10 ? '0' + String(ss) : String(ss));
     
     //Insere o valor tratado no elemento counter
     document.getElementById('counter').innerText = format;
 
-    tempoDejogo = format;
+    tempoSegundos = ss;
+    tempoMinutos = mm;
+    tempoHoras = hh;
 
 
     //Retorna o valor tratado
@@ -533,8 +535,24 @@ function capturaPokemon(){
     }
 }
 */
+
+function guardaTempo(){
+    localStorage.setItem("tempoLatest" , tempoHoras + ":" + tempoMinutos + ":" + tempoSegundos);
+}
+
+
+
 function terminaJogo(){
-    alert('parabens acabou o jogo!!!')
+    if (tempoMinutos === 0 && tempoHoras === 0){
+        alert('parabens acabou o jogo. Com um tempo de ' + tempoSegundos + ' ' + ' segundos')
+    }
+    else if (tempoHoras === 0){
+        alert('parabens acabou o jogo. Com um tempo de ' + tempoMinutos + ' minutos ' + tempoSegundos + ' segundos')
+    }
+    else{
+        alert('parabens acabou o jogo. Com um tempo de ' + tempoHoras + ' horas ' + tempoMinutos + ' minutos ' + tempoSegundos + ' segundos')
+    }
+    guardaTempo();
 }
 
 
