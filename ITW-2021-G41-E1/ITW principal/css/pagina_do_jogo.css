@@ -28,8 +28,17 @@
     margin-left: 15%;
 }
 
-#pausaMusica{
-    margin-left: 15%;
+#start{
+    width: 50%;
+    margin-left: 23%;
+}
+
+#form1{
+    margin-left: 1%;
+}
+
+#botoes{
+    margin-right: 20%;
 }
 
 .max-width{
