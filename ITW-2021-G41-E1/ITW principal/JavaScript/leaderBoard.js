@@ -1,5 +1,5 @@
 let best = localStorage.getItem("tempoBest")
-if (best === undefined){
+if (best === null || best === undefined){
     best = '99:99:99';
 }
 
@@ -22,14 +22,14 @@ function peixe(){
 
     let newLatest = converteSegundos(latest);
     
-    if(best === newLatest){
+    if(newBest === newLatest){
         best = latest;
     }
-    else if (best > newLatest){
+    else if (newBest > newLatest){
         best = latest;
     }
 
-    else if(best < newLatest){
+    else if(newBest < newLatest){
         best = best;
     }
 

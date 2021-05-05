@@ -537,7 +537,10 @@ function capturaPokemon(){
 */
 
 function guardaTempo(){
-    localStorage.setItem("tempoLatest" , tempoHoras + ":" + tempoMinutos + ":" + tempoSegundos);
+ //Cria uma variável com o valor tratado HH:MM:SS
+    let format = (tempoHoras < 10 ? '0' + String(tempoHoras) : String(tempoHoras)) + ':' + (tempoMinutos < 10 ? '0' + String(tempoMinutos) : String(tempoMinutos)) + ':' + (tempoSegundos < 10 ? '0' + String(tempoSegundos) : String(tempoSegundos));
+
+    localStorage.setItem("tempoLatest" , format);
 }
 
 
