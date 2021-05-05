@@ -107,14 +107,18 @@
 
 <!-- tempo -->
     <div class="max-width">
-      <label name="selectmap">Maps:</label>
-        <select id="selectmapa" name="Maps">
-          <option value="grass_map">Florest map</option>
-          <option value="cave_map">Cave map</option>
-          <option value="water_map" selected>Island map</option>
-        </select>
+      <form>
+        <label name="selectmap">Maps:</label>
+          <select id="selectmapa" name="Maps">
+            <option value="grass_map" selected>Florest map</option>
+            <option value="cave_map">Cave map</option>
+            <option value="water_map">Island map</option>
+          </select>
+      </form> 
 
       <button id="start" >Start Game</button>
+      <button id="pausaMusica" >Pausar Musica</button>
+      <button id="tocaMusica" >Toca Musica</button>
       
       <h1 id="counter">00:00:00</h1>
     </div>
@@ -223,11 +227,12 @@
           </div>     
       
       <div id="container1b">
-        <form>
+        <form id="myform">
 
-        <label id="NumAleatorio"><input type="hidden" name="number">
-            <input type="hidden" onclick="luta()"
-                   value="submeter">
+        <label> 
+          <p id="numAleatorio"></p> 
+          <input id="input" type="hidden" name="input">
+          <button type="button" id="btn" onclick="luta()">submit</button>
         </label>
         <p id="mensagem"></p>  
         </form>

@@ -6,21 +6,26 @@ window.addEventListener("load", principal);
 let mensagem = null;
 let select = null;
 let pedeValorAoJogador = null;
+let tempoDejogo = null;
 
 function principal(){
     document.getElementById("start").onclick = start;
+    document.getElementById("pausaMusica").onclick = pausaMusica;
+    document.getElementById("tocaMusica").onclick = tocaMusica;
+    $("#btn").hide();
     audio = document.getElementById("myAudio"); // vai buscar o id do audio para usar na função start
     mensagem = document.getElementById('mensagem'); //vai buscar o id do paragrafo para ir alterando a mensagem
     select = document.getElementById('selectmapa'); // vai buscar o id da drop down para saber qual opção esta selecionada
-    pedeValorAoJogador = document.getElementById('NumAleatorio') // vai buscar o id do label para ir alterando a pergunda ao jogador
+    pedeValorAoJogador = document.getElementById('numAleatorio') // vai buscar o id do label para ir alterando a pergunda ao jogador
     mapas();
+    $('#selectmapa').on("change",mapas);
 }
 
 
 function mapas () {
 	let value = select.options[select.selectedIndex].value;
 	
-    if (value === 'grass_map'){
+    if (value === "grass_map"){
         mapa1();
     }
     
@@ -33,6 +38,8 @@ function mapas () {
     }
 
 }
+
+
 
 //  ↓↓↓↓↓↓↓↓↓↓↓↓↓↓  codigo para fazer o tempo do jogo  ↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 
 
@@ -74,10 +81,18 @@ function start() {
     
 }
 
+function tocaMusica(){
+    audio.play();
+}
+
+function pausaMusica(){
+    audio.pause();
+}
 
 
 //Para o temporizador 
 function stop() {
+    console.log(tempoDejogo);
     clearInterval(cron);
     hh = 0;
     mm = 0;
@@ -107,6 +122,9 @@ function timer() {
     //Insere o valor tratado no elemento counter
     document.getElementById('counter').innerText = format;
 
+    tempoDejogo = format;
+
+
     //Retorna o valor tratado
     return format;
 }
@@ -116,6 +134,7 @@ function timer() {
 
 function imgluta1(){
     $('img').prop("src", "imagens/nada.png");
+    console.log(pokemon.pkPlayer);
 
 
     /*Este if vai ver qual pokemon está no mapa e quando for chamada a função 'imgluta' troca o background do mapa para outro
@@ -123,10 +142,10 @@ function imgluta1(){
 
     if (pokemon.pk1 === 'cater'){
 
-        if (pokemon.pkPlayer === 'Bulba'){
+        if (pokemon.pkPlayer === 'bulbassaur'){
             $('#container1a').css('background-image', 'url("imagens/Luta/Bulba_cater.png")');
         }
-        else if (pokemon.pkPlayer === 'char'){
+        else if (pokemon.pkPlayer === 'charmander'){
             $('#container1a').css('background-image', 'url("imagens/Luta/char_cater.png")');
         }
         else if (pokemon.pkPlayer === 'squirtle'){
@@ -206,7 +225,7 @@ function imgluta2(){
     /*Este if vai ver qual pokemon está no mapa e quando for chamada a função 'imgluta' troca o background do mapa para outro
     luta que vai ter o pokemon do jogador e o oponente */
 
-    if (pokemon.pk2 === 'Growlithe'){
+    if (pokemon.pk2 === 'growlithe'){
 
         if (pokemon.pkPlayer === 'Bulba'){
             $('#container1a').css('background-image', 'url("imagens/Luta/Bulba_growlithe.png")');
@@ -231,14 +250,22 @@ function voltaMapa(){
     }
 
     if (pokemon.pk1 === 'Eiscue'){
-        $('#container1a').css('background-image', 'url("css/imagens_css/grass_3.png")');
+        $('#container1a').css('background-image', 'url("css/imagens_css/sand_tile2.png")');
     }
-
+    
     if (pokemon.pk1 === 'geodude'){
-        $('#container1a').css('background-image', 'url("css/imagens_css/grass_3.png")');
+        $('#container1a').css('background-image', 'url("imagens/Cave.png")');
     }
 
     desenhaMapa();
+}
+
+
+function formInvi(){
+    pedeValorAoJogador.innerText = "";
+    $('#input').prop("type","hidden");
+    $('#btn').hide();
+    mensagem.innerText = ""
 }
 
 
@@ -280,7 +307,7 @@ function mapa1 () {
 
     pokemon.pk1 = 'cater';
     pokemon.pk2 = 'pidgey';
-    pokemon.pkPlayer = 'Bulba';
+    pokemon.pkPlayer = localStorage.getItem("Starter__pokemon");
 
     desenhaMapaConsola();
     desenhaMapa();
@@ -305,7 +332,7 @@ function mapa2(){
     tamanhoMapa = 7
     pokemon.pk1 = 'geodude';
     pokemon.pk2 = 'growlithe';
-    pokemon.pkPlayer = 'Bulba';
+    pokemon.pkPlayer = localStorage.getItem("Starter__pokemon");
 
     desenhaMapaConsola();
     desenhaMapa();
@@ -315,13 +342,13 @@ function mapa2(){
 
 function mapa3(){
     mapa = [
-        ['','','','','','',''],
-        ['','','Player1','','PK1','',''],
-        ['','','','PK2','','',''],
-        ['','','','','','',''],
-        ['','','','','','',''],
-        ['','','','','','',''],
-        ['','','','','','','']
+        ['water','water','water','water','water','water','water'],
+        ['water','water','Player1','BeachTree','','PK1','water'],
+        ['water','water','','','','Rock3','water'],
+        ['water','BeachTree','','','BeachTree','water','water'],
+        ['water','','PK1','','','water','water'],
+        ['water','','','','PK2','','water'],
+        ['water','water','water','water','water','End','water']
     ]
 
     posiçãoJogador.linha = 1;
@@ -331,7 +358,7 @@ function mapa3(){
 
     pokemon.pk1 = 'Eiscue';
     pokemon.pk2 = 'Pikachu';
-    pokemon.pkPlayer = 'Bulba';
+    pokemon.pkPlayer = localStorage.getItem("Starter__pokemon");
 
     desenhaMapaConsola();
     desenhaMapa();
@@ -416,44 +443,66 @@ function desenhaMapa (){
             else if (mapa[i][j] === 'water'){
                 $('#' + 'l'+ (i+1) + '_' + i +'' +j).prop("src","imagens/nada.png");
             }
+            else if (mapa[i][j] === 'Rock3'){
+                $('#' + 'l'+ (i+1) + '_' + i +'' +j).prop("src","imagens/Rock3.png");
+            }
+            else if (mapa[i][j] === 'BeachTree'){
+                $('#' + 'l'+ (i+1) + '_' + i +'' +j).prop("src","imagens/BeachTree.png");
+            }
         }
     }
     console.log();
 }
 
-
-function luta(){
-    let levelPk = 12;
-    let valorDoPlayer = null;
-    
+let numeroAleatorio = null;
 
 
-    let numeroAleatorio = Math.floor(Math.random() * levelPk) + 1
+function mostraInput(){
+    pedeValorAoJogador.innerText = 
+    "Adivinhe um número entre 1 e 12";
+    $('#input').prop("type","text");
+    $('#btn').show();
+
+    numeroAleatorio = Number(Math.floor(Math.random() * 12) + 1)
     console.log(numeroAleatorio);
-
-    do{
-        
-        if (valorDoPlayer != numeroAleatorio){
-             mensagem.innerHTMl('O ataque falhou continue tentando');
-        }
-    } while (valorDoPlayer != numeroAleatorio){
-        if (valorDoPlayer == numeroAleatorio){
-            mensagem.innerHTMl('O ataque acertou, derrotou o pokemon')  ;
-            querCapturar();
-        }
-    
-    }
-
 }
 
-function querCapturar(){
-    let msg = prompt('quer capturar este pokemon ? (Escreva s caso queira e escreva n caso não queira.)');
+function luta(){
+        
+    let input = document.querySelector("#input");
+        let valorDoPlayer = Number(input.value);
+    
 
-    if (msg === 's'){
+        if (valorDoPlayer !== numeroAleatorio) {
+            mensagem.innerText = 'O ataque falhou continue tentando';
+        }
+        
+        else if (valorDoPlayer === numeroAleatorio){
+            mensagem.innerText = 'O ataque acertou, derrotou o pokemon';
+            setTimeout(function(){    
+                voltaMapa();
+                formInvi();
+            }, 1000);
+        }
+
+    }
+
+    
+
+/*function querCapturar(){
+    mensagem.innerText = '';
+    pedeValorAoJogador.innerText = 
+    'Quer capturar este pokemon ? (Escreva s caso queira).';
+
+        let input = document.querySelector("#input");
+        let resposta = input.value;
+        $('#btn').prop("onclick","capturaPokemon()");
+
+    if (resposta === numeroAleatorio){
         capturaPokemon();
     }
     else{
-        voltaMapa();  
+        voltaMapa();
     }   
 }
 
@@ -470,7 +519,7 @@ function capturaPokemon(){
         voltaMapa();
     }
 }
-
+*/
 function terminaJogo(){
     alert('parabens acabou o jogo!!!')
 }
@@ -492,18 +541,14 @@ function moveBaixo () {
     }
     else if (mapa[posiçãoJogador.linha + 1][posiçãoJogador.coluna] === 'PK1'){
         imgluta1();
-        setTimeout(function(){    // serve para dar tempo de alterar o background da luta 
-            luta();
-        }, 100);
+        mostraInput();
         mapa[posiçãoJogador.linha + 1][posiçãoJogador.coluna] = 'Player1';
         mapa[posiçãoJogador.linha][posiçãoJogador.coluna] = '';
         posiçãoJogador.linha++;
     }
     else if (mapa[posiçãoJogador.linha + 1][posiçãoJogador.coluna] === 'PK2'){
         imgluta2();
-        setTimeout(function(){    // serve para dar tempo de alterar o background da luta 
-            luta();
-        }, 100);
+        mostraInput();
         mapa[posiçãoJogador.linha + 1][posiçãoJogador.coluna] = 'Player1';
         mapa[posiçãoJogador.linha][posiçãoJogador.coluna] = '';
         posiçãoJogador.linha++;
@@ -532,18 +577,14 @@ function moveCima () {
     }
     else if (mapa[posiçãoJogador.linha - 1][posiçãoJogador.coluna] === 'PK1'){
         imgluta1();
-        setTimeout(function(){    // serve para dar tempo de alterar o background da luta 
-            luta();
-        }, 100);
+        mostraInput();
         mapa[posiçãoJogador.linha - 1][posiçãoJogador.coluna] = 'Player1';
         mapa[posiçãoJogador.linha][posiçãoJogador.coluna] = '';
         posiçãoJogador.linha--;
     }
     else if (mapa[posiçãoJogador.linha - 1][posiçãoJogador.coluna] === 'PK2'){
         imgluta2();
-        setTimeout(function(){    // serve para dar tempo de alterar o background da luta 
-            luta();
-        }, 100);
+        mostraInput();
         mapa[posiçãoJogador.linha - 1][posiçãoJogador.coluna] = 'Player1';
         mapa[posiçãoJogador.linha][posiçãoJogador.coluna] = '';
         posiçãoJogador.linha--;
@@ -573,18 +614,14 @@ function moveEsquerda () {
     }
     else if (mapa[posiçãoJogador.linha][posiçãoJogador.coluna - 1] === 'PK1'){
         imgluta1();
-        setTimeout(function(){    // serve para dar tempo de alterar o background da luta 
-            luta();
-        }, 100);
+        mostraInput();
         mapa[posiçãoJogador.linha][posiçãoJogador.coluna - 1] = 'Player1';
         mapa[posiçãoJogador.linha][posiçãoJogador.coluna] = '';
         posiçãoJogador.coluna--;
     }
     else if (mapa[posiçãoJogador.linha][posiçãoJogador.coluna - 1] === 'PK2'){
         imgluta2();
-        setTimeout(function(){    // serve para dar tempo de alterar o background da luta 
-            luta();
-        }, 100);
+        mostraInput();
         mapa[posiçãoJogador.linha][posiçãoJogador.coluna - 1] = 'Player1';
         mapa[posiçãoJogador.linha][posiçãoJogador.coluna] = '';
         posiçãoJogador.coluna--;
@@ -613,18 +650,14 @@ function moveDireita () {
     }
     else if (mapa[posiçãoJogador.linha][posiçãoJogador.coluna + 1] === 'PK1'){
         imgluta1();
-        setTimeout(function(){    // serve para dar tempo de alterar o background da luta 
-            luta();
-        }, 100);
+        mostraInput();
         mapa[posiçãoJogador.linha][posiçãoJogador.coluna + 1] = 'Player1';
         mapa[posiçãoJogador.linha][posiçãoJogador.coluna] = '';
         posiçãoJogador.coluna++;
     }
     else if (mapa[posiçãoJogador.linha][posiçãoJogador.coluna + 1] === 'PK2'){
         imgluta2();
-        setTimeout(function(){    // serve para dar tempo de alterar o background da luta 
-            luta();
-        }, 100);
+        mostraInput();
         mapa[posiçãoJogador.linha][posiçãoJogador.coluna + 1] = 'Player1';
         mapa[posiçãoJogador.linha][posiçãoJogador.coluna] = '';
         posiçãoJogador.coluna++;
