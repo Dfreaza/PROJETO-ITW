@@ -134,7 +134,6 @@ function timer() {
 
 function imgluta1(){
     $('img').prop("src", "imagens/nada.png");
-    console.log(pokemon.pkPlayer);
 
 
     /*Este if vai ver qual pokemon está no mapa e quando for chamada a função 'imgluta' troca o background do mapa para outro
@@ -158,10 +157,10 @@ function imgluta1(){
 
     if (pokemon.pk1 === 'Eiscue'){
 
-        if (pokemon.pkPlayer === 'Bulba'){
+        if (pokemon.pkPlayer === 'bulbassaur'){
             $('#container1a').css('background-image', 'url("imagens/Luta/Bulba_Eiscue.png")');
         }
-        else if (pokemon.pkPlayer === 'char'){
+        else if (pokemon.pkPlayer === 'charmander'){
             $('#container1a').css('background-image', 'url("imagens/Luta/char_Eiscue.png")');
         }
         else if (pokemon.pkPlayer === 'squirtle'){
@@ -174,10 +173,10 @@ function imgluta1(){
 
     if (pokemon.pk1 === 'geodude'){
 
-        if (pokemon.pkPlayer === 'Bulba'){
+        if (pokemon.pkPlayer === 'bulbassaur'){
             $('#container1a').css('background-image', 'url("imagens/Luta/Bulba_geodude.png")');
         }
-        else if (pokemon.pkPlayer === 'char'){
+        else if (pokemon.pkPlayer === 'charmander'){
             $('#container1a').css('background-image', 'url("imagens/Luta/char_geodude.png")');
         }
         else if (pokemon.pkPlayer === 'squirtle'){
@@ -195,10 +194,10 @@ function imgluta2(){
 
     if (pokemon.pk2 === 'pidgey'){
 
-        if (pokemon.pkPlayer === 'Bulba'){
+        if (pokemon.pkPlayer === 'bulbassaur'){
             $('#container1a').css('background-image', 'url("imagens/Luta/Bulba_pidgey.png")');
         }
-        else if (pokemon.pkPlayer === 'char'){
+        else if (pokemon.pkPlayer === 'charmander'){
             $('#container1a').css('background-image', 'url("imagens/Luta/char_pidgey.png")');
         }
         else if (pokemon.pkPlayer === 'squirtle'){
@@ -211,10 +210,10 @@ function imgluta2(){
 
     if (pokemon.pk2 === 'Pikachu'){
 
-        if (pokemon.pkPlayer === 'Bulba'){
+        if (pokemon.pkPlayer === 'bulbassaur'){
             $('#container1a').css('background-image', 'url("imagens/Luta/Bulba_pikachu.png")');
         }
-        else if (pokemon.pkPlayer === 'char'){
+        else if (pokemon.pkPlayer === 'charmander'){
             $('#container1a').css('background-image', 'url("imagens/Luta/char_pikachu.png")');
         }
         else if (pokemon.pkPlayer === 'squirtle'){
@@ -227,10 +226,10 @@ function imgluta2(){
 
     if (pokemon.pk2 === 'growlithe'){
 
-        if (pokemon.pkPlayer === 'Bulba'){
+        if (pokemon.pkPlayer === 'bulbassaur'){
             $('#container1a').css('background-image', 'url("imagens/Luta/Bulba_growlithe.png")');
         }
-        else if (pokemon.pkPlayer === 'char'){
+        else if (pokemon.pkPlayer === 'charmander'){
             $('#container1a').css('background-image', 'url("imagens/Luta/char_growlithe.png")');
         }
         else if (pokemon.pkPlayer === 'squirtle'){
@@ -307,9 +306,13 @@ function mapa1 () {
 
     pokemon.pk1 = 'cater';
     pokemon.pk2 = 'pidgey';
-    pokemon.pkPlayer = localStorage.getItem("Starter__pokemon");
+    if (localStorage.getItem("Starter__pokemon") === null){
+        pokemon.pkPlayer = 'charmander'
+    }
+    else{
+        pokemon.pkPlayer = localStorage.getItem("Starter__pokemon");
+    }
 
-    desenhaMapaConsola();
     desenhaMapa();
     $('#container1a').css('background-image', 'url("css/Imagens_css/grass_3.png")');
     
@@ -332,9 +335,14 @@ function mapa2(){
     tamanhoMapa = 7
     pokemon.pk1 = 'geodude';
     pokemon.pk2 = 'growlithe';
-    pokemon.pkPlayer = localStorage.getItem("Starter__pokemon");
+    if (localStorage.getItem("Starter__pokemon") === null){
+        pokemon.pkPlayer = 'charmander'
+    }
+    else{
+        pokemon.pkPlayer = localStorage.getItem("Starter__pokemon");
+    }
 
-    desenhaMapaConsola();
+
     desenhaMapa();
     $('#container1a').css('background-image', 'url("imagens/Cave.png")');
 }
@@ -358,14 +366,19 @@ function mapa3(){
 
     pokemon.pk1 = 'Eiscue';
     pokemon.pk2 = 'Pikachu';
-    pokemon.pkPlayer = localStorage.getItem("Starter__pokemon");
-
-    desenhaMapaConsola();
+    if (localStorage.getItem("Starter__pokemon") === null){
+        pokemon.pkPlayer = 'charmander'
+    }
+    else{
+        pokemon.pkPlayer = localStorage.getItem("Starter__pokemon");
+    }
     desenhaMapa();
     $('#container1a').css('background-image', 'url("css/Imagens_css/sand_tile2.png")');
 }
 
-
+/**
+ * serve apenas para desenha o mapa na consola (nao esta a fazer nada) 
+ */
 function desenhaMapaConsola (){
     for (let i = 0; i < tamanhoMapa; i++){
         for (let j = 0; j < tamanhoMapa; j++){
